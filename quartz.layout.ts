@@ -8,8 +8,10 @@ export const sharedPageComponents: SharedLayout = {
   header: [],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+      GitHub: "https://github.com/thrawn01/quartz-garden",
+      Twitter: "https://twitter.com/thrawn01",
+      Medium: "https://medium.com/@thrawn01",
+      Linkedin: "https://www.linkedin.com/in/thrawn01"
     },
   }),
 }
@@ -38,8 +40,41 @@ export const defaultContentPageLayout: PageLayout = {
     ),
   ],
   right: [
+    Component.NavList({
+      title: "Site Map",
+      links: [
+        {
+          name: "About Me",
+          url:"/about"
+        },
+        {
+          name: "All Blog Posts",
+          url:"/posts"
+        }
+      ]
+    }),
+    Component.NavList({
+      title: "Links",
+      links: [
+        {
+          name: "Linkedin",
+          url:"https://www.linkedin.com/in/thrawn01"
+        },
+        {
+          name: "Github",
+          url:"https://github.com/thrawn01"
+        },
+        {
+          name: "Medium",
+          url:"https://medium.com/@thrawn01"
+        },
+        {
+          name: "Twitter",
+          url:"https://twitter.com/thrawn01"
+        },
+      ]
+    }),
     Component.DesktopOnly(Component.TableOfContents()),
-    Component.Backlinks(),
   ],
 }
 

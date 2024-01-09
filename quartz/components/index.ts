@@ -19,6 +19,7 @@ import DesktopOnly from "./DesktopOnly"
 import MobileOnly from "./MobileOnly"
 import RecentNotes from "./RecentNotes"
 import Breadcrumbs from "./Breadcrumbs"
+import NavList from "./NavList"
 
 export {
   ArticleTitle,
@@ -35,6 +36,7 @@ export {
   TagList,
   Graph,
   Backlinks,
+  NavList,
   Search,
   Footer,
   DesktopOnly,
