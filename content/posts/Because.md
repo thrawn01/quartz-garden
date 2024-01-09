@@ -1,0 +1,7 @@
+---
+date: 2007-11-27T00:00:00Z
+---
+Yes because! because I'm not a poet, or a lyricists. Because I'm a software developer. I deal with the facts. Truth, cold hard understanding. Emotions are a mystery, not meant to be understood. Because if I understand them I can ignore them, and to ignore them is to live a joyless existence. One of the best things that ever happened to me was showing up at your door every day, not knowing why. I had this feeling I couldn't shake, or understand. No one can tell you your in love, you just know it, Through and through. Like a disease that is hard to shake, Like the best disease you wish you didn't have but can't live without. It's a part of you, you can't throw it away, you can't give it way, you can't ignore it. Even if it were to grow cold one day, it's still apart of you. Nothing can take away the memory of this love. So ask away, and I'll continue to give you my answer, "Because". There is no other answer, if there is, maybe I'll lose this. Maybe it will disappear into this logical vacuum which dissects the world and places it back together into its logical and well understood mold. I think it would destroy me, because its a reason to live, a reason to work hard, a reason to exist. A reason to put up with the shit this world throws at you everyday. What other reason to continue through this world system if not for this strange unknown emotion which brings joy to this joyless existence.
+
+So yeah, I love you Just because and I wouldn't have it any other way.
+
