@@ -1,5 +1,6 @@
 ---
 title: Grammar, On My Terms
+description: The personal website of Derrick J Wippler, my opinions are my own and are likely insane and incomprehensible. Enter at your own risk!
 ---
 ![[images/banner-background.png]]
 #### I learn from the mistakes of people who took my advice 🤣
