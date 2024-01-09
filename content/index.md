@@ -3,7 +3,7 @@ title: Grammar, On My Terms
 ---
 ![[images/banner-background.png]]
 #### I learn from the mistakes of people who took my advice 🤣
-I’m a Developer, Mentor, Friend, Husband, Entrepreneur, Gamer, and Builder.
+I’m a Developer, Mentor, Friend, Father, Husband, Entrepreneur, Gamer, and Builder.
 
 ## Some Things I Believe
 * You can have strong opinions, but, don’t hold them too close to your heart.
