@@ -1,15 +1,15 @@
 ---
 date: 2014-03-03T01:00:00Z
-title: Introduction to GIT WTF
+title: Introduction to GIT CLIP
 tags:
   - tools
   - environment
 ---
 Due to the collaborative nature of **_git_**; over time I begin to accumulate quite a few branches and working closely in a team compounds this problem. Remembering what branch needs to be merged, and what branches need a pull can tax the little grey cells.
 
-As a solution to this problem, I present `git wtf` Instead of trying to explain what it is, lets just run `git wtf` and examine it’s output.
+As a solution to this problem, I present `git clip` Instead of trying to explain what it is, lets just run `git clip` and examine it’s output.
 
-Here is a run of `git wtf` on a project at work
+Here is a run of `git clip` on a project at work
 
 ![[git-wtf-at-work.png]]
 A lot of information there, lets start with the first two lines
@@ -27,12 +27,12 @@ So in review, the `storage-node-metadata` branch has 1 commit not merged into ma
 ### Master
 Now lets look at `master`
 ![[git-wtf-master-origin.png]]
-Since it’s master it doesn't have commits ahead or behind `(0/0)` and should always follow `[origin]`. The following indented lines show all the remotes master can pull from. You can see `remotes/cory/master` is 17 commits behind our master, this means **_cory_** should pull from us or from upstream. You can also see that upstream is 2 commits ahead, this means we should pull from upstream. `git wtf` will also show if **_our_** master is ahead and needs to be pushed.
+Since it’s master it doesn't have commits ahead or behind `(0/0)` and should always follow `[origin]`. The following indented lines show all the remotes master can pull from. You can see `remotes/cory/master` is 17 commits behind our master, this means **_cory_** should pull from us or from upstream. You can also see that upstream is 2 commits ahead, this means we should pull from upstream. `git clip` will also show if **_our_** master is ahead and needs to be pushed.
 
 #### Tracking Remote Branches
 On the next line we see the `sqlalchemy08` branch.
 ![[git-wtf-sqlalchemy.png]]
-In this branch cory has a patch to introduce sqlalchemy 8.0 into our project. Since I was reviewing the patch I tracked cory's branch. You will notice this branch tracks `[cory]` instead of `[origin]`. Also notice `git wtf` shows us this branch has 2 commits ahead of master, and 2 behind. I might need to rebase before I merge this branch into master.
+In this branch cory has a patch to introduce sqlalchemy 8.0 into our project. Since I was reviewing the patch I tracked cory's branch. You will notice this branch tracks `[cory]` instead of `[origin]`. Also notice `git clip` shows us this branch has 2 commits ahead of master, and 2 behind. I might need to rebase before I merge this branch into master.
 
 #### Collaborating on single branch
 Next we see the `volume-manager` branch.
@@ -45,25 +45,16 @@ Moving on we see `branch-not-published`
 `(2/0)` tells us the branch has 2 commits ahead, and no commits behind. Also there is no `[name-of-tracking-remote]` so we know this branch is not tracking a remote. Notice there are no indented lines following this line. This means there are no remote branches so we know this branch is local only.
 
 #### Already merged
-I originaly created `git wtf` to help me clean up already merged branches. Often I do this clean up weeks or months after a branch has been merged into master.
+I originally created `git clip` to help me clean up already merged branches. Often I do this clean up weeks or months after a branch has been merged into master.
 ![[git-wtf-update-docs.png]]
 Here you can see this branch has already been merged, as it has no new commits to provide and is behind master by 10 commits. which probably means it hasn't been updated in a while
 
-#### Final Note
-`git wtf` does not preform a `git fetch` to determine the status of remote branches, you have to keep your local git repo updated by preforming `git fetch` yourself. I made a helper script called `git fetch-all` which does exactly what it says, it runs `git fetch` for all the remotes git knows about. You can get a copy [here](https://github.com/thrawn01/dev-tools/blob/master/git-fetch-all)
-
 #### TLDR
-`git wtf` brings order to chaos and riches to poor git programmers.
+`git clip` brings order to chaos and riches to poor git programmers.
 
 ## Installation
-Download a copy of the `git wtf` script from [here](https://github.com/thrawn01/dev-tools/blob/master/git-wtf)
+Download a copy of the `git clip` by following the instructions [here](https://github.com/thrawn01/clip)
 
-#### OSX
-1. Chdir to git’s exec-path directory `` cd `git --exec-path` ``
-2. Copy the script there and call it `git-wtf`
+> [!note] 
+> This project was originally a collection of a few scripts in my `~/dotfiles` called `git wtf` which was based off an other project which has been lost to time. I eventually gave up the `wtf` name and went with `clip`. But I never went back and updated the screen shots.
 
-#### Ubuntu/Linux Distro’s
-On Ubuntu you have 2 options.
-
-1. Repeat the install instructions for OSX
-2. Place the `git-wtf` script somewhere in your local `$PATH`, where `git` will find it. I usually create a `~/bin` directory and add `~/bin` to my `$PATH` then place `git-wtf` and all my other git helper scripts there.
