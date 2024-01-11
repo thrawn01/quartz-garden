@@ -6,7 +6,7 @@ description: The personal website of Derrick J Wippler, my opinions are my own a
 #### I learn from the mistakes of people who took my advice 🤣
 My name is Derrick Wippler, I’m a Developer, Mentor, Friend, Father, Husband, Entrepreneur, Gamer, and Builder.
 
-## Some Things I Believe
+### Some Things I Believe
 * You can have strong opinions, but, don’t hold them too close to your heart.
 * You should never guess, always inspect, measure, and then act.
 * If your entire focus is on code, you will get beautiful code, but a poor product.
