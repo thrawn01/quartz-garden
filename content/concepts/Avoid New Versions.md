@@ -1,0 +1,3 @@
+We have historically avoided a ton of problems by following a simple rule. DO NOT INTRODUCE NEW VERSIONS OF THINGS. When we have broken this rule, we have regretted it. While it is sometimes unavoidable and new versions of things must be created, it is not a decision to take lightly. The grass is always greener on the other side of the field, until you jump over and realize it’s only green because there is a leaky septic tank just under the surface.
+
+TODO Finish this thought

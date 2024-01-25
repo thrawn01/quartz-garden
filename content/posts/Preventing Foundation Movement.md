@@ -2,8 +2,8 @@
 title: Preventing Foundation Movement
 date: 2023-07-30
 tags:
-  - house
   - texas
+  - home
 ---
 Alternate Title: How to avoid soil pulling away from the foundation
 

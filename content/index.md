@@ -12,10 +12,10 @@ My name is Derrick Wippler, I’m a Developer, Mentor, Friend, Father, Husband, 
 * If your entire focus is on code, you will get beautiful code, but a poor product.
 *  Everyone has value, some just haven’t seen it yet, It’s our job to help them see it.
 * If you don’t have a strategy for handling technical debt you are doomed to lose velocity over the life of your product.
-* The key isn’t finding the perfect product, so much as it is figuring out the method for making successful products
-* The point of a debate is to argue a position, the point of a conversation is to exchange ideas. One is productive, 
-  the other is not. Life is too short to argue with those who only wish to debate, but not educate
-*  My favorite childhood memory is my back not hurting
+* The key isn’t finding the perfect product, so much as it is figuring out the method for making successful products.
+* The point of a debate is to argue a position, the point of a conversation is to exchange ideas. One is productive, the other is not. Life is too short to argue with those who only wish to debate, but not educate.
+* Two much power concentrated in a single person is detrimental to humanity.
+*  My favorite childhood memory is my back not hurting.
 
 And finally, Don’t take any one thing to seriously, including this.
 
@@ -33,10 +33,9 @@ I'm currently working on an open source based communication startup which is cur
 I helped lead the engineering department at [mailgun.com](https://mailgun.com), and previously worked at [Rackspace](https://rackspace.com) where I helped launch and operate the Cloud Block Storage product. See [[about|About Me]] page for details.
 
 ### Writing
-* [GroupCache: The superior Golang cache](https://www.mailgun.com/blog/it-and-engineering/golangs-superior-cache-solution-memcached-redis/)
-* [Container Efficiency](https://www.mailgun.com/blog/it-and-engineering/container-development-and-efficiency/)
+* [[Anatomy Of A Product| Anatomy Of A Product: How to build and scale a SaaS]]
+* [Mailgun/GroupCache: The superior Golang cache](https://www.mailgun.com/blog/it-and-engineering/golangs-superior-cache-solution-memcached-redis/)
 * [Introduction to Gubernator](https://www.mailgun.com/blog/it-and-engineering/gubernator-cloud-native-distributed-rate-limiting-microservices/)
-* [Mailgun-Go Feature](https://www.mailgun.com/blog/email/delivering-html-emails-mailgun-go/)
 * [Service Mesh & Vulcand at Mailgun](https://www.mailgun.com/blog/product/how-and-why-we-adopted-service-mesh-with-vulcand-and-nginx/)
 
 ### Emulator Stuff
