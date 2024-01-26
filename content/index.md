@@ -34,12 +34,9 @@ I helped lead the engineering department at [mailgun.com](https://mailgun.com), 
 
 ### Writing
 * [[Anatomy Of A Product| Anatomy Of A Product: How to build and scale a SaaS]]
+* [[Mastering RESTful Design|Mastering RESTful Design: A Decade of Lessons Learned and Best Practices]]
 * [Mailgun/GroupCache: The superior Golang cache](https://www.mailgun.com/blog/it-and-engineering/golangs-superior-cache-solution-memcached-redis/)
 * [Introduction to Gubernator](https://www.mailgun.com/blog/it-and-engineering/gubernator-cloud-native-distributed-rate-limiting-microservices/)
 * [Service Mesh & Vulcand at Mailgun](https://www.mailgun.com/blog/product/how-and-why-we-adopted-service-mesh-with-vulcand-and-nginx/)
 
-### Emulator Stuff
-* [SuperRetro16 (Formerly SuperGNES) Tutorial](https://www.youtube.com/watch?v=78ArKk2QZTM)
-* [Ouya & Emulator Controversy](https://kotaku.com/ouya-tries-to-dispel-fears-that-the-consoles-nintendo-458745016)
-* [Google Cracks Down on Emulators](https://venturebeat.com/games/google-emulator-ban-games/)
 

@@ -4,7 +4,6 @@ tags:
   - design
 date: 2024-01-12
 ---
-
 Encapsulation is one of those concepts that is a pillar of OOP design, and is a VERY useful tool when used in the correct context.
 
 ### When to avoid
