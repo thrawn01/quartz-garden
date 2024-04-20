@@ -1,6 +1,6 @@
 ---
 title: Exercising the Drill
-slug: killing-innovation-toxic-environment
+slug: exercising-the-drill
 date: 2024-03-18
 draft: true
 tags:
@@ -10,12 +10,12 @@ tags:
 ---
  Leaders may imagine that by fostering an air of competition, where verbal belligerence must be tolerated to ensure the best, brightest and strongest rise to the occasion. They might imagine by doing so they ensure the firm can weather any storm. That those who survive are the few who have the fortitude and drive to take the belligerence dished out to them, that they are the few who can think on their feet and react in the worst of situations.
 
-Such a strategy **might** work well on a sales floor filled with Type-A personalities, all pushing an aggressive sales agenda, where competition is often healthy and encouraged. But this rarely ever has the desired outcome when applied to the engineering organization. Instead, the most likely out come is the creation of a toxic environment where innovation, ideas and objections to a wrong course go unheaded by those who have earned the emotional scars required to survive in such a climate.
+Such a strategy **might** work well on a sales floor filled with Type-A personalities, all pushing an aggressive sales agenda, where competition is often healthy and encouraged. But this rarely ever has the desired outcome when applied to the engineering organization. Instead, the most likely out come is the creation of a toxic environment where innovation, ideas and objections to a wrongful course go unheeded by those who have earned the emotional scars required to survive in such a climate.
 
 ## The Drill
-For me, this topic is top of mind since discovering that a company which I had previously held in high regard, a company of which a contemporary of mine works, a company that I once might have aspired to join, was instead fostering a toxic environment via public belligerence and verbal abuse from senior individuals interacting with individual contributors.
+For me, this topic is top of mind since discovering that a company, which I had previously held in high regard, a company of which a contemporary of mine works, a company that I once might have aspired to join, was instead fostering a toxic environment via public belligerence and verbal abuse from senior individuals interacting with individual contributors.
 
-This came to my notice when my contemporary asked for review of an "Exercise Drill" document. The contents and intent of the document shocked me.
+This came to my notice when my contemporary asked for review of an document roughly called "Exercise Drill". The contents and intent of the document shocked me.
 
 The introduction is summarized thus.
 
@@ -25,7 +25,7 @@ This document describes a team building exercise for technical presentations and
 
 The summary suggests that the exercise dictated in the document is designed to assist the presenters stay calm and focused under pressure, and to effectively communicate technical information to a hostile audience. 
 
-I can assure you, no document such as this comes without cause, nor does it come from idle speculation what may happen in the future. No, this is a document born out of scars given and received, it is born out of a sincere desire on the part of the author for their engineering fellows to prepare for what is about to descend upon them should they find themselves speaking in front of senior-level management.
+I can assure you, no document such as this comes without cause, nor does it come from idle speculation of what may happen in the future. No, this is a document born out of scars given and received, it is born out of a sincere desire on the part of the author for their engineering fellows to prepare for what is about to descend upon them should they find themselves speaking in front of senior-level management.
 
 Digging into the document further we find that the exercise should consist of 3 individuals, the presenter, and two other individuals who act as the belligerents. The role of the presenter is thus summarized.
 
@@ -56,7 +56,7 @@ I find this appalling, and dis hearting to say the least. But I what really brea
 ```
 We have two options
 
-1. We are going to not warn you that you are going to be personally attacked, and allow you to walk into a room full of people making  an order of magnitude more money that you, and let you get yelled at and see how it goes
+1. We are going to not warn you that you are going to be personally attacked, and allow you to walk into a room full of people making an order of magnitude more money that you, and let you get yelled at and see how it goes
 
 2. We, with humor in our hearts are going to call you a motherfucking ignoramus and shout at you through the course of your entire presentation so that when you get into the room, nothing is going to happen that hasn't already happened.
 ```
@@ -67,7 +67,7 @@ Such an environment hurts innovation, as Innovation is all about taking chances 
 
 The firm may then be left with just a few who have the fortitude and drive willing to take the belligerence, can think on their feet, are willing to be wrong publicly, and can bear the scars of public abuse at the hands of senior management. These individuals are quite often, NOT the people who you want in these positions, who themselves may be supported by individuals who may wish to see them fail, if only out of spite.
 
-If individual contributors actually DO participate in the drill, it's unlikely to be something that they will enjoy. Participants, knowing that such an unenjoyable drill is required or expected will avoid it, possibly leading to the detriment of the team, initiative or product. It's hard enough to get contributors to participate in "mandatory fun", how much more so will it be to get them to participate in an exercise that is even more painful that a company offsite where making eye contact and conversing via primitive analog voice comms is likely to occur.
+If individual contributors actually DO participate in the drill, it's unlikely to be something that they will enjoy. Participants, knowing that such an unenjoyable drill is required or expected will avoid it, possibly leading to the detriment of the team, initiative or product. It's hard enough to get contributors to participate in "mandatory fun", how much more so will it be to get them to participate in an exercise that is even more painful than a company offsite where making eye contact and conversing via primitive analog voice comms is likely to occur.
 
 These are the unintended side effect of a hostile environment. A hostile environment the senior management has created, in an industry that requires innovation and evolution in order to not only survive, but to thrive.
 ## This hurts

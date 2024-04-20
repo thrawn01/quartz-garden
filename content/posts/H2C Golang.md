@@ -29,9 +29,12 @@ server := &http.Server{
     Handler: h2c.NewHandler(handler, h2s),
 }
 
+checkErr(http2.ConfigureServer(server, h2s), "during call to ConfigureServer()")
+
 fmt.Printf("Listening [0.0.0.0:1010]...\n")
 checkErr(server.ListenAndServe(), "while listening")
 ```
+
 The above code allows the server to support
 [H2C upgrade](https://http2.github.io/http2-spec/#discover-http) and
 [H2C prior knowledge](https://http2.github.io/http2-spec/#known-http) along with
