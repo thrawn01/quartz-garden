@@ -10,8 +10,7 @@ tags:
 ---
  Leaders may imagine that by fostering an air of competition, where verbal belligerence must be tolerated to ensure the best, brightest and strongest rise to the occasion. They might imagine by doing so they ensure the firm can weather any storm. That those who survive are the few who have the fortitude and drive to take the belligerence dished out to them, that they are the few who can think on their feet and react in the worst of situations.
 
-Such a strategy **might** work well on a sales floor filled with Type-A personalities, all pushing an aggressive sales agenda, where competition is often healthy and encouraged. But this rarely ever has the desired outcome when applied to the engineering organization. Instead, the most likely out come is the creation of a toxic environment where innovation, ideas and objections to a wrongful course go unheeded by those who have earned the emotional scars required to survive in such a climate.
-
+Such a strategy **might** work well on a sales floor filled with type-a personalities, where you may expect some belligerence and ridicule while dealing with particularly difficult customers. In such environments sales drills and competition is often healthy and encouraged. But this rarely ever has the desired outcome when applied to the engineering organization. Instead, the most likely out come is the encouragement of a toxic environment where innovation, ideas and objections to a wrongful course go unheeded by those who have earned the emotional scars required to survive in such a climate.
 ## The Drill
 For me, this topic is top of mind since discovering that a company, which I had previously held in high regard, a company of which a contemporary of mine works, a company that I once might have aspired to join, was instead fostering a toxic environment via public belligerence and verbal abuse from senior individuals interacting with individual contributors.
 
@@ -60,7 +59,7 @@ We have two options
 
 2. We, with humor in our hearts are going to call you a motherfucking ignoramus and shout at you through the course of your entire presentation so that when you get into the room, nothing is going to happen that hasn't already happened.
 ```
-## The unintended consequences
+## The Unintended Consequences
 The consequences of leadership acting in such a manner will have the unintended effect of penalizing objective voices. By creating an environment where individual contributors are personally attacked, they will inevitable refuse to participate in, correct, object to, or speak up to correct a wrongful course. Having PTSD from a previous encounter, bearing the emotional scars of personal attacks, they may look upon the coming failure with glee, so as to reap some little reward for their scars.
 
 Such an environment hurts innovation, as Innovation is all about taking chances and failing. Thus, only the most self assured individuals will be willing to stake their reputation and emotional well being on the possibility of failure. If failure is meet with belligerence and ridicule, the result will be a reduction in risk taking, which leads to less innovation, less technical progress, a reduction of risky debit clean up, and reduced adoption of the latest new technology outside the norms.
@@ -70,6 +69,6 @@ The firm may then be left with just a few who have the fortitude and drive willi
 If individual contributors actually DO participate in the drill, it's unlikely to be something that they will enjoy. Participants, knowing that such an unenjoyable drill is required or expected will avoid it, possibly leading to the detriment of the team, initiative or product. It's hard enough to get contributors to participate in "mandatory fun", how much more so will it be to get them to participate in an exercise that is even more painful than a company offsite where making eye contact and conversing via primitive analog voice comms is likely to occur.
 
 These are the unintended side effect of a hostile environment. A hostile environment the senior management has created, in an industry that requires innovation and evolution in order to not only survive, but to thrive.
-## This hurts
+## This Hurts
 This really hit home for me. After reviewing the document shared in confidence, I raved for a bit to my wife, who patiently and lovingly suggested that I put these thoughts down in writing. I do not intend to cause malice or ill will toward the company or individuals in question; I only wish to get this off my chest. And if my personal endeavor is a success, any such hostile environment will be viciously and unapologetically squashed at any firm with which I have an association.
 
