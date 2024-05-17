@@ -5,7 +5,7 @@ tags:
   - programming
   - education
 ---
-So, you want to be a senior / architect / programmer thingamajig eh? Or maybe you just want a front row seat to how an actual product gets developed without the constant need for a re-write every 10 days or so. Welp, you're in the right place. 
+So, you want a front row seat to how a product gets developed without the constant need for a re-write every 10 days or so. Welp, you’re in the right place.
 
 This article is an explanation of methods I've used to design code and systems such that you maximize test-ability, velocity and reduce technical debt throughout the life of the product. This article represents a culmination of experience building and scaling products at https://mailgun.com. 
 
