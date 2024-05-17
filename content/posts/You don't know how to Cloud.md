@@ -30,6 +30,9 @@ GCP makes this relatively easy to do.
 - Defining SLIs https://youtu.be/uhpAScSerec?si=eSaGlP_DRxDGlygn
 - Creating Budgets https://youtu.be/F4omjjMZ54k?si=bvqjsyQiligDshpj
 
+For an overview on compute estimation, I highly recommend this excellent repo and accompanying talk by [Simon Eskildsen](https://twitter.com/sirupsen)
+
+[https://github.com/sirupsen/napkin-math](https://github.com/sirupsen/napkin-math)
 ### Design for the cloud
 You MUST design your software for the cloud, forget any dreams of taking your existing product and moving it to the cloud and expecting magical cost savings. We've acquired companies that have tried to do this and it doesn't work.
 
