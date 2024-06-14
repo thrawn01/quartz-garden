@@ -23,20 +23,23 @@ My name is Derrick Wippler, I’m a Developer, Mentor, Friend, Father, Husband, 
 
 ### Things I Believe
 * You can have strong opinions but, don’t hold them too close to your heart.
+* Open Source is the vehicle through which humanity achieves sustainable innovation.
 * You should never guess, always inspect, measure, and then act.
 * If your entire focus is on code, you will get beautiful code, but a poor product.
 *  Everyone has value, some just haven’t seen it yet, It’s our job to help them see it.
 * If you don’t have a strategy for handling technical debt you are doomed to lose velocity over the life of your product.
 * The key isn’t finding the perfect product, so much as it is figuring out the method for making successful products.
 * The point of a debate is to argue a position, the point of a conversation is to exchange ideas. One is productive, the other is not. Life is too short to argue with those who only wish to debate, but not educate.
-* Two much power concentrated in a single person is detrimental to humanity.
 *  My favorite childhood memory is my back not hurting.
 
 And finally, Don’t take any one thing to seriously, including this.
 
 ### Things I've Worked On
-I'm currently working on an open source based communication startup which is currently in stealth mode.
+I'm currently trying to build an open source based company with the goal of building an eco system which encourages efficiency, sustainability and high velocity, by creating a [pit of success](https://blog.codinghorror.com/falling-into-the-pit-of-success/) which developers will accidentally fall into,  by virtue of the environment, platform and frameworks we build. 
+
+SQUEEEEEEEEEE!!! I'M SOOOOOOOOO EXCITED!!!
 
 I helped lead the engineering department at [mailgun.com](https://mailgun.com), and previously worked at [Rackspace](https://rackspace.com) where I helped launch and operate the Cloud Block Storage product. See [[about|About Me]] page for details.
 
-
+### Blog
+See [[Posts|All My Blog Posts]]
