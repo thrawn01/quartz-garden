@@ -19,7 +19,7 @@ Simply put, if you're trying to use MongoDB like an RDBMS -- with relationships 
 
 > With demand growing for self-hosting Infisical, we found ourselves shipping many features catered to reducing the learning curve needed to self-host Infisical and, as part of that, we ended up leaving MongoDB in favor of PostgreSQL. -- [The Great Migration from MongoDB to PostgreSQL](https://medium.com/@tony.infisical/the-great-migration-from-mongodb-to-postgresql-fa3978bc143b)
 
-I completely understand this point of view. PostgreSQL has a much wider audience, has a very open license similar to the BSD or MIT licenses, and it has a great many developers and operators which have experience using and working with PostgreSQL. I personally love using PostgreSQL! However, as will touch on later in this article, they could have easily supported both databases! 
+I completely understand this point of view. PostgreSQL has a much wider audience, has a very open license similar to the BSD or MIT licenses, and it has a great many developers and operators which have experience using and working with PostgreSQL. I personally love using PostgreSQL! However, as I will touch on later in this article, they could have easily supported both databases! 
 
 The driving point of my comments here is, if you choose the right data model, you can easily support many, many different databases with ease. As an open source project, many of those supported databases could be contributed by third party contributors. Provided your data model is compatible.
 
@@ -46,7 +46,7 @@ I'm not saying that each database doesn't have their own advantages or disadvant
 ### You can only build what you know
 When I do interviews, I'll often ask the candidate to whiteboard a product which creates and sells widgets. 80% of candidates begin by building relational database tables, and I die a little inside each time. They do this, because all they have ever known is relational database applications and modeling. 
 
-You can only build what you know. So I don't blame the candidates, I don't blame the [Infisical] team. I blame the database wars that persist within the open source community. We need to start broadcasting the truth about the database wars. It's less about the database, and more about how you model your data that makes your database a success or not. We need to do a better job of teaching these fundamental data modeling concepts and their trade offs.
+You can only build what you know. So I don't blame the candidates, I don't blame the Infisical team. I blame the database wars that persist within the open source community. We need to start broadcasting the truth about the database wars. It's less about the database, and more about how you model your data that makes your database a success or not. We need to do a better job of teaching these fundamental data modeling concepts and their trade offs.
 
 HINT: The correct answer to the "whiteboard a product which create and sells widgets" is to design the interface first (UI, or API is acceptable). The public interface will then dictate your data model. You should always build from the top down, not the bottom up.
 
@@ -64,7 +64,7 @@ The single table design isn't without it's draw backs, but it's a great place to
 ### Fin
 I could go on for another hour or so, but I'm done for now, I just had to get this of my chest, and into words. My intent isn't to start another war, but to instead bring some attention to the data modeling topic. I'm not the only one, and I won't be the last, hopefully I'm lending my voice to the chorus.
 
-Where to start learning STD, which is just the beginning of a new data model adventure.
+Where to start learning STD, which is just the beginning of a new data modeling adventure.
 * (1) https://www.gomomento.com/blog/single-table-design-for-dynamodb-the-reality
 * (2) https://www.alexdebrie.com/posts/dynamodb-single-table/
 * (3) https://emshea.com/post/part-1-dynamodb-single-table-design
