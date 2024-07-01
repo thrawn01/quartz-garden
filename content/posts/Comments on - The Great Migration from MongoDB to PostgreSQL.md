@@ -34,7 +34,7 @@ Contrast this to a similar product, [Vault](https://github.com/hashicorp/vault).
 
 `</spicy take>`
 
-### It's not the me, it's you
+### It's not me, it's you
 The key take away from this article should be. IT'S NOT THE DATABASE, IT'S HOW YOU ARE USING THE DATABASE that is the problem. The [Infisical](https://github.com/Infisical/infisical) team might have continued to use MongoDB with no issues or used another Document DB with a better license. Indeed, at this point, there is no need for them to switch back from PostgreSQL! You CAN and SHOULD use PostgreSQL as a key value store! Under the hood all databases are essentially key value stores, which means, they are at their most efficient when used as such! 
 
 Unfortunately many people use and abuse the features that RDBMS provides on top of that key value store. When they then run into performance problems, they switch databases, often remodel their data in the process, after which they point and scream, SEE!!!! X DATABASE IS MO BETTA THAN Y DATABASE.
