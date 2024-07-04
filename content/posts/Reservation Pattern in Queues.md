@@ -11,9 +11,9 @@ The reservation pattern is typically used in place of [transactions in a distrib
 When we first built Mailgun, our first queue system was a library that talked with MongoDB. At some point we realized libraries were more trouble than they are worth in a SOA environment and we built a GRPC based queue service which used the same **Reservation Pattern** the library used to ensure we only delivered an email message once, and only once. What we eventually realized is that we could use the same queue service with the reservation pattern to implement the saga pattern, along with a bunch of other use cases we never really thought about until after we built the queue service.
 
 ## Reservation Pattern and Queue How To
-The reservation pattern is used to implement an "Almost Exactly Once Delivery" queue by ensuring that each message is processed "almost" once and in the order it was received. I say, "almost" because [Exactly Once Delivery (EOD) is theoretically impossible](https://bravenewgeek.com/you-cannot-have-exactly-once-delivery/). HOWEVER, In practice you can achieve AEOD or "Almost Exactly Once Delivery" which is just EOD with the understanding that you have the occasional duplicate delivery due to some failure of the system.
+The reservation pattern is used to implement an "Almost Exactly Once Delivery" queue by ensuring that each message is processed "almost exactly" once and in the order it was received. I say, "almost" because [Exactly Once Delivery (EOD) is theoretically impossible](https://bravenewgeek.com/you-cannot-have-exactly-once-delivery/). HOWEVER, In practice you can achieve AEOD or "Almost Exactly Once Delivery" which is just EOD with the understanding that you have the occasional duplicate delivery due to some failure of the system.
 
-In our experience, the duplicate delivery rate is very low indeed. When I say "very low" I mean, it has about the same delivery failure rate of whatever your current uptime is. That is to say, message delivery is about as reliable as the system it runs on. If you need additional protection against duplication, you can ensure the messages consumed are idempotent. Remember, [Distributed systems are all about trade-offs](https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed/)
+In our experience, the duplicate delivery rate is very low indeed. When I say "very low" I mean, it has about the same failure rate of whatever your current uptime is. That is to say, it is about as reliable as the system it runs on. If you need additional protection against duplication, you can ensure the messages consumed are idempotent. Remember, [Distributed systems are all about trade-offs](https://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed/)
 
 Here are the key parts of a Reservation Queue:
 ###### Reservation
@@ -28,14 +28,15 @@ If the reserved message is not processed within a specified time, the reservatio
 Our queue implementations allowed the consumer to voluntarily defer or retry the message, by canceling the reservation and adding the item back to the queue to be offered to some other consumer. Optionally, the defer can specify a future date and time when the message will be re queued.
 
 ## What can you do with it?
-The interesting thing about a reservation queue is that you can use the reservation to not only ensure the message was delivered, but ensure the message was processed by the consumer. In this way, you can think of it as a transaction. Because the consumer can hold on to the reservation until timeout, it can hold off marking the reservation as complete until it has processed the message that was consumed. As a result, you can use the transactional primitive the reservation queue provides to solve several distributed problems.
+The interesting thing about a reservation queue is that you can use the reservation to not only ensure the message was delivered, but ensure the message was processed by the consumer. In this way, you can think of it as a locking primitive for processing items. Because the consumer can hold on to the reservation until timeout, it can hold off marking the reservation as complete until it has processed the message that was consumed. As a result, you can use the locking primitive the reservation queue provides to  solve several distributed problems.
 
 * Multi-step, retry-able workflows.
 * The [Saga Pattern](https://microservices.io/patterns/data/saga.html) for distributed transactions
 * Use it as a FIFO queue with ordered delivery of messages.
+* Use it as a lock to gain exclusive access to an item of work
 * Run async background tasks that can retry if failed.
 * Schedule cron style jobs to run at a specific time in the future and retry if failed.
-* Retryable and reliable Webhook delivery with external systems.
+* Retryable and reliable web-hook delivery with external systems.
 ## Failure Conditions & Reliability
 In our experience the most common failure condition is when the consumer takes longer than expected to process the reserved item, such that the reservation timeout is exceeded. In this scenario the queue implementation will clear the reservation, so it is picked up by another consumer. The first consumer still thinks it has the reservation and is still processing the message, it is just taking a very long time for some reason. This slowness could be caused by network issues, or the compute where the consumer is running is saturated in some way. In any case, the result is that processing took long enough that the item in the queue is offered to another consumer and is processed more than once. 
 
