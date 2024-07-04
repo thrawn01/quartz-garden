@@ -6,7 +6,6 @@ tags:
   - cloud
   - systems
 ---
-
 ## Assumptions
 
 This article assumes you are building a product where you have some idea of the "actions" the user will be allowed to perform. Since you know what actions will be performed, you should have some idea of the cardinality, and selection criteria your queries will need in order to present the output to the user - most of the time.

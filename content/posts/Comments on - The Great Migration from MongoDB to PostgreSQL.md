@@ -61,7 +61,7 @@ See my article on [[PostgreSQL Database Cost Estimation]] where I touch on how y
 
 The single table design isn't without it's draw backs, but it's a great place to start. If you absolutely NEED relationships, then add them with care, not with reckless abandon.
 
-### Fin
+### The End
 I could go on for another hour or so, but I'm done for now, I just had to get this of my chest, and into words. My intent isn't to start another war, but to instead bring some attention to the data modeling topic. I'm not the only one, and I won't be the last, hopefully I'm lending my voice to the chorus.
 
 Where to start learning STD, which is just the beginning of a new data modeling adventure.

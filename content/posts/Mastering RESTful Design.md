@@ -11,7 +11,6 @@ tags:
 When designing a RESTful API, it is helpful to be aware of some common pitfalls that may seem harmless at first but can lead to issues for infrastructure, maintenance or future expandability of the API product years down the road. In this article, I recount some poor design decisions we made at [mailgun.com](https://mailgun.com) over the years and provide recommendations on how to avoid or adapt as these problems arise.
 
 Our folly, is your reward.... now on with the show.
-
 ## Controlling URL Complexity
 Developers should keep in mind that the URL path is the primary way systems route requests and determine access controls for many public and private API’s. The more complex the path, the more complex the routing rules must be for the API gateway or service mesh systems that route requests to your endpoint. Additionally the more complex the route, the greater possibility your route will collide with a another route in ways that you may never had anticipated. (We discuss this in depth later). In addition, there maybe several proxy, middleware and security interceptors (in app and on the network) which enforce controls on a specific paths which may struggle to match or accidentally match routes that it should not or not match routes it should, thus generating an un-intended security incident which might be detrimental to your paycheck.
 
