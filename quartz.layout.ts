@@ -11,7 +11,8 @@ export const sharedPageComponents: SharedLayout = {
       GitHub: "https://github.com/thrawn01/quartz-garden",
       Twitter: "https://twitter.com/thrawn01",
       Medium: "https://medium.com/@thrawn01",
-      Linkedin: "https://www.linkedin.com/in/thrawn01"
+      Linkedin: "https://www.linkedin.com/in/thrawn01",
+      RSSFeed: "https://wippler.dev/index.xml"
     },
   }),
 }
@@ -50,7 +51,11 @@ export const defaultContentPageLayout: PageLayout = {
         {
           name: "All Blog Posts",
           url:"/posts"
-        }
+        },
+        {
+          name: "RSS Feed",
+          url:"https://wippler.dev/index.xml"
+        },
       ]
     }),
     Component.NavList({
