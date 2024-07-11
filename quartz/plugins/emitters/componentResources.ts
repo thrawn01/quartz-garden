@@ -81,26 +81,6 @@ function addGlobalPageResources(
     componentResources.css.push(popoverStyle)
   }
 
-  staticResources.js.push({
-    src: `https://openpanel.dev/op.js`,
-    contentType: "external",
-    loadTime: "beforeDOMReady",
-  })
-
-  staticResources.js.push({
-    loadTime: "afterDOMReady",
-    contentType: "inline",
-    script: `
-      window.op = window.op || function (...args) { (window.op.q = window.op.q || []).push(args); };
-      window.op('ctor', {
-        clientId: '248848a9-3598-4a61-8ac4-a349211e371e',
-        trackScreenViews: true,
-        trackOutgoingLinks: true,
-        trackAttributes: true,
-      });`,
-  })
-
-
   if (cfg.analytics?.provider === "google") {
     const tagId = cfg.analytics.tagId
     staticResources.js.push({
@@ -145,24 +125,21 @@ function addGlobalPageResources(
       document.head.appendChild(umamiScript)
     `)
   } else if (cfg.analytics?.provider === "openpanel") {
-    staticResources.js.push({
-      src: `https://openpanel.dev/op.js`,
-      contentType: "external",
-      loadTime: "beforeDOMReady",
-    })
-
-    staticResources.js.push({
-      loadTime: "afterDOMReady",
-      contentType: "inline",
-      script: `
+    componentResources.afterDOMLoaded.push(`
+      const openPanelScript = document.createElement("script")
+      openPanelScript.src = "https://openpanel.dev/op.js"
+      openPanelScript.defer = true
+      openPanelScript.async = true
+      document.head.appendChild(openPanelScript)
+      
       window.op = window.op || function (...args) { (window.op.q = window.op.q || []).push(args); };
       window.op('ctor', {
-        clientId: '${cfg.analytics.clientId}',
+        clientId: "${cfg.analytics.clientId}",
         trackScreenViews: true,
         trackOutgoingLinks: true,
         trackAttributes: true,
-      });`,
-    })
+      });
+    `)
   }
 
   if (cfg.enableSPA) {
