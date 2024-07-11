@@ -17,6 +17,10 @@ export type Analytics =
       provider: "umami"
       websiteId: string
     }
+  | {
+      provider: "openpanel"
+      clientId: string
+}
 
 export interface GlobalConfiguration {
   pageTitle: string

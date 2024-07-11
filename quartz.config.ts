@@ -7,7 +7,8 @@ const config: QuartzConfig = {
     enableSPA: true,
     enablePopovers: true,
     analytics: {
-      provider: "plausible",
+      provider: "openpanel",
+      clientId: "248848a9-3598-4a61-8ac4-a349211e371e",
     },
     baseUrl: "wippler.dev",
     ignorePatterns: ["private", "templates", ".obsidian"],
