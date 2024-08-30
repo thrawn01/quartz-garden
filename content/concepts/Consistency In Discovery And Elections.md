@@ -6,8 +6,9 @@ date: 2024-07-15
 
 Raft is often used for service discovery in Zookeeper, ETCD & Consul because of it's consistent nature. In that a write log is replicated to nodes in the cluster with the leader of the cluster accepting writes. Provided a leader can be elected, raft can accept writes. https://raft.github.io/
 
-But I've wondered for several years if such consistent systems are needed for service discovery and leader election. I've been thinking about this again, as I look into alternatives to using consul due to licensing changes.
+But do we really need such consistent for service discovery and elections? I've been thinking about this again, and I wish to propose a theory, consistent data stores are not required for discovery and election, and should be considered dangerous when making assumptions about the accuracy of the "consistent" data store.
 
+### Leader Election
 Raft itself uses a leader election algorithm to decide who is leader at any given moment. I wrote an implementation of this algorithm a few years ago. https://github.com/thrawn01/election. The election portion of the protocol is eventually consistent, in that multiple nodes may still be participating in a version of the election until they receive a heartbeat from the elected leader, thus signifying the end of the election. This broadcast or heartbeat, is eventually consistent, quorum on the leader is "eventually" achieved and losing candidates are told to get in line. 
 
 Since leader election in Raft is it's self eventually consistent, why would dependent systems need the eventually consistent nature of the raft log/db in order to achieve their leader election? In addition, even though a leader is chosen in the raft DB consistently, notification of that choice is often broadcast to dependent members by "watches", which may or may not have been cancelled or are in the process of re-connection. As such, it could be said that notification of a leadership change does have some hall marks of an eventually consistent system, in that eventually everyone will eventually be notified that the leader has changed. 
