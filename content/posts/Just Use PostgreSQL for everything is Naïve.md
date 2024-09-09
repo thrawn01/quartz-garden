@@ -61,14 +61,14 @@ AND THAT'S IT! database evaluation doesn't need to be difficult, costly, or exte
 > [!note]
 > During my time at Mailgun, we benefited greatly from pivoting to Cassandra as our main storage for email, while we continued to use a document database for email metadata, account, and billing data.
 
-### Why PostgreSQL is Terrible
+### Why is PostgreSQL Terrible?
 My earlier lament on what I want from PostgreSQL comes from years of experience running and using various databases, including PostgreSQL. While this post isn't intended as a deep dive into the inadequacies of PostgreSQL, my spidey senses are twitching at the inevitable hate mail I expect to receive from the PostgreSQL die-hards. For those who might imagine that my assertion of "PostgreSQL carries around the design baggage of a bygone era" is unwarranted, here are some references which may satisfy the curious.
 
 [Why PostgreSQL’s MVCC is the Worst](https://www.cs.cmu.edu/~pavlo/blog/2023/04/the-part-of-postgresql-we-hate-the-most.html) 
 > We will be blunt: if someone is going to build a new MVCC DBMS today, they should **not** do it the way PostgreSQL does (e.g., append-only storage with autovacuum). In our [2018 VLDB paper](https://db.cs.cmu.edu/papers/2017/p781-wu.pdf) (aka “ [the best paper ever on MVCC](https://twitter.com/andy_pavlo/status/902863242774634496)“), we did not find another DBMS doing MVCC the way PostgreSQL does it. Its design is a relic of the 1980s and before the proliferation of [log-structured](https://en.wikipedia.org/wiki/Log-structured_merge-tree) system patterns from the 1990s.
 
 [Why Uber Engineering Switched from Postgres to MySQL](https://www.uber.com/blog/postgres-to-mysql-migration/) 
-> We encountered many Postgres limitations: Inefficient architecture for writes, Inefficient data replication, Issues with table corruption, Poor replica MVCC support, Difficulty upgrading to newer releases
+> We encountered many Postgres limitations: Inefficient architecture for writes, Inefficient data replication, Issues with table corruption, Poor replica MVCC support, Difficulty upgrading to newer releases .... Postgres does not have true replica MVCC support. The fact that replicas apply WAL updates results in them having a copy of on-disk data identical to the master at any given point in time. This design poses a problem for Uber.
 
 [Oxide Podcast: The challenges of operating PostgreSQL at scale](https://oxide.computer/podcasts/oxide-and-friends/2052742) during their time at [Joyent](https://www.joyent.com/) and how [autovacuum caused an outage](https://www.tritondatacenter.com/blog/manta-postmortem-7-27-2015) starts at about 20 minutes into the podcast. (This podcast was the inspiration for this blog post)
 > "We found a lot of behavior around synchronous replication that was either undocumented, or poorly documented and not widely understood, which contributed to a feeling that this thing (PostgreSQL) was really hard to operationalize. Even if you know about these things, they are very hard to workaround, and fix."
