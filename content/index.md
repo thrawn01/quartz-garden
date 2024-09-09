@@ -6,12 +6,19 @@ description: The personal website of Derrick J Wippler, my opinions are my own a
 #### I learn from the mistakes of people who took my advice 🤣
 My name is Derrick Wippler, I’m a Developer, Mentor, Friend, Father, Husband, Entrepreneur, Gamer, and Builder.
 
+### Active Projects
+I'm currently building an open source based company called kapetan.io with the goal of building an eco system which encourages efficiency, sustainability and high velocity, by creating a [pit of success](https://blog.codinghorror.com/falling-into-the-pit-of-success/) which developers will fall into  by virtue of the environment, platform and frameworks we build. 
+
+#### Querator
+I'm actively working on a Reservation based FIFO queue backed by a Database with Almost Exactly Once Delivery semantics called Querator
+- Repo: https://github.com/kapetan-io/querator
+- Trello Board: https://trello.com/b/cey2cB3i/querator
+
 ### Things I've Written
 * [[Anatomy Of A Product| Anatomy Of A Product: How to build and scale a SaaS]]
 * [[Mastering RESTful Design|Mastering RESTful Design: A Decade of Lessons Learned and Best Practices]]
+* [[Synchronization is bad for scale]]
 * [Mailgun/GroupCache: The superior Golang cache](https://www.mailgun.com/blog/it-and-engineering/golangs-superior-cache-solution-memcached-redis/)
-* [Introduction to Gubernator](https://www.mailgun.com/blog/it-and-engineering/gubernator-cloud-native-distributed-rate-limiting-microservices/)
-* [Service Mesh & Vulcand at Mailgun](https://www.mailgun.com/blog/product/how-and-why-we-adopted-service-mesh-with-vulcand-and-nginx/)
 
 ### Things I've Built
 * [Gubernator](https://github.com/gubernator-io/gubernator) is a high performance rate limiting service and library written in golang and battle tested at [Mailgun](https://github.com/mailgun/gubernator)
@@ -34,12 +41,8 @@ My name is Derrick Wippler, I’m a Developer, Mentor, Friend, Father, Husband, 
 
 And finally, Don’t take any one thing to seriously, including this.
 
-### Things I've Worked On
-I'm currently trying to build an open source based company with the goal of building an eco system which encourages efficiency, sustainability and high velocity, by creating a [pit of success](https://blog.codinghorror.com/falling-into-the-pit-of-success/) which developers will accidentally fall into,  by virtue of the environment, platform and frameworks we build. 
-
-SQUEEEEEEEEEE!!! I'M SOOOOOOOOO EXCITED!!!
-
-I helped lead the engineering department at [mailgun.com](https://mailgun.com), and previously worked at [Rackspace](https://rackspace.com) where I helped launch and operate the Cloud Block Storage product. See [[about|About Me]] page for details.
+### Things I've done
+I helped lead the engineering department at [mailgun.com](https://mailgun.com), and previously worked at [Rackspace](https://rackspace.com) where I helped build and operate their Cloud Block Storage product. See [[about|About Me]] page for details.
 
 ### Blog
 See [[Posts|All My Blog Posts]]
