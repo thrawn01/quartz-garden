@@ -48,7 +48,7 @@ When I do interviews, I'll often ask the candidate to whiteboard a product which
 
 You can only build what you know. So I don't blame the candidates, I don't blame the Infisical team. I blame the database wars that persist within the open source community. We need to start broadcasting the truth about the database wars. It's less about the database, and more about how you model your data that makes your database a success or not. We need to do a better job of teaching these fundamental data modeling concepts and their trade offs.
 
-HINT: The correct answer to the "whiteboard a product which create and sells widgets" is to design the interface first (UI, or API is acceptable). The public interface will then dictate your data model. You should always build from the top down, not the bottom up.
+HINT: The correct answer to the "whiteboard a product which create and sells widgets" is to design the interface first (UI, or API is acceptable). The public interface will then dictate your data model. You should always build from the [top down, not the bottom up](https://www.teamten.com/lawrence/programming/write-code-top-down.html).
 
 ### Single Table Design Is Not A Curse
 I've encountered several individuals who have this deep rooted belief that [single table design (1)](https://www.gomomento.com/blog/single-table-design-for-dynamodb-the-reality) is a curse which is inflicted upon a developer due to the constraint of using a nosql database. 
