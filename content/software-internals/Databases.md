@@ -24,7 +24,6 @@ Jepsen is an effort to improve the safety of distributed databases, queues, cons
 ## Indexes
 - https://use-the-index-luke.com/ A site explaining SQL indexing to developers—no crap about administration.
 - [PAPER: DLHT A Non-blocking Resizable Hashtable with Fast Deletes and Memory-awareness](https://arxiv.org/pdf/2406.09986)
-
 ## Concepts
 - Fsync Machines vs Join Machines [Two Machines](https://buttondown.com/jaffray/archive/the-two-machines/)
 
@@ -43,6 +42,8 @@ A list of databases and links to relevant information shared in the channel
 #### ClickHouse
 - [CPU Dispatch in ClickHouse](https://clickhouse.com/blog/cpu-dispatch-in-clickhouse) - How vectorization works, what CPU dispatch is, how to find places for CPU dispatch optimizations and how we use CPU dispatch in ClickHouse.
 
+#### MegaStore
+[Megastore: Providing Scalable, Highly Available Storage for Interactive Services](https://www.cidrdb.org/cidr2011/Papers/CIDR11_Paper32.pdf) Megastore is a storage system developed to meet the requirements of today’s interactive online services. Megastore blends the scalability of a NoSQL datastore with the convenience of a traditional RDBMS in a novel way, and provides both strong consistency guarantees and high availability. We provide fully serializable ACID semantics within fine-grained partitions of data. This partitioning allows us to synchronously replicate each write across a wide area network with reasonable latency and support seamless failover between datacenters. This paper describes Megastore’s semantics and replication algorithm. It also describes our experience supporting a wide range of Google production services built with Megastore.
 
 
 
