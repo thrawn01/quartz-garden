@@ -62,6 +62,10 @@ export const defaultContentPageLayout: PageLayout = {
       title: "Links",
       links: [
         {
+          name: "Software Internals",
+          url:"https://wippler.dev/software-internals/topics"
+        },
+        {
           name: "Linkedin",
           url:"https://www.linkedin.com/in/thrawn01"
         },
