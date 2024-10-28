@@ -18,7 +18,7 @@ I want a database that is designed for no downtime upgrades, that is designed fo
 In short, I want a modern database that makes MY product successful. For MY use case, and from MY experience, Vanilla PostgreSQL is not that database, YET......
 
 > [!note]
-> A colleague of mine pointed out that most of my wants are provided by some of the Databases within the PostgreSQL ecosystem. I have no personal production experience with those databases, so cannot recommend them, but I would encourage readers to check out the many options available!
+> A colleague of mine pointed out that most of my wants are provided by some of the Databases within the PostgreSQL ecosystem. I have no personal production experience with those databases, but I would encourage readers to check out the many options available! IE: [Neon](https://neon.tech/home) , [YugaByte](https://www.yugabyte.com/), etc...
 
 ### Modern Databases & PostgreSQL
 In my experience, the best thing about PostgreSQL isn't the database, but the community and the vibrant innovation happening around the PostgreSQL ecosystem. Many brilliant people are building solutions to many of the problems I point out at the top. Anyone evaluating a database should absolutely include the many PostgreSQL derivatives and extensions in their search for product fit.
@@ -79,7 +79,7 @@ My earlier lament on what I want from PostgreSQL comes from years of experience 
 ### End
 PostgreSQL is a great open source PROJECT, it's just not a great PRODUCT. This is especially true when compared to modern databases designed from the ground up to take advantage of the last 40 years of database advancement. 
 
-To reiterate, the PostgreSQL community continues to be a very active and growing project and it is my sincere hope it continues to grow and modernize. But even if it does modernize, the advice of "Just use PostgreSQL" will never be true. Proper evaluation should always be a key part of any technology adoption, no matter what the internet says, or what anecdotal evidence is provided -- including mine! Every product is different and every operator has different levels of expertise which should be taken into account when adopting any database, self hosted or not.
+To reiterate, the PostgreSQL community continues to be a very active and growing project and it is my sincere hope it continues to grow and modernize. But even if it does modernize, the advice of "Just use PostgreSQL" will never be true. Proper evaluation should always be a key part of ANY technology adoption, no matter what the internet says, or what anecdotal evidence is provided -- including mine! Every product is different and every operator has different levels of expertise which should be taken into account when adopting any database, self hosted or not.
 
 And that is the big takeaway. Evaluate your options, be mindful of your product requirements, understand your limitations, and the limitations of the technology you are using, don't blindly follow the crowd, and if you only hear good things about some tech, be cautious, and keep digging deeper until you find reality.
 
