@@ -9,6 +9,7 @@ tags:
 
 There is a symbiotic relationship between "clean" systems, and  [Cognitive Load](https://en.wikipedia.org/wiki/Cognitive_load). The ability to grok a system outside of understand the problem domain is the top determining factor in how well clean or good the system is. There are a ton of aspects which make code "clean", which incidentally helps reduce the [Cognitive Load](https://en.wikipedia.org/wiki/Cognitive_load) which also incidentally makes the code easier to change.
 ### Code Architecture
+- [[Order of Importance]] -- TODO
 * [[Separation Of Concerns]]
 * [[Domain Driven Design]]
 * Data Ownership

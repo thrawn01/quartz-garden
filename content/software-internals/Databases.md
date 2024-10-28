@@ -26,6 +26,7 @@ Jepsen is an effort to improve the safety of distributed databases, queues, cons
 - [PAPER: DLHT A Non-blocking Resizable Hashtable with Fast Deletes and Memory-awareness](https://arxiv.org/pdf/2406.09986)
 ## Concepts
 - Fsync Machines vs Join Machines [Two Machines](https://buttondown.com/jaffray/archive/the-two-machines/)
+- [How Query Engines Work](https://howqueryengineswork.com/) A query engine is a piece of software that can execute queries against data to produce answers to questions.
 
 ## Databases
 A list of databases and links to relevant information shared in the channel

@@ -23,3 +23,4 @@ TLDR; Separation Of Concerns is a corner stone of [[Clean Code]]
 
 This page was taken from this [stack exchange question](https://softwareengineering.stackexchange.com/questions/32581/how-do-you-explain-separation-of-concerns-to-others) and is the simplest and most concrete way of explaining this principle I've found. Thank you [flamingpenguin](https://softwareengineering.stackexchange.com/users/5404/flamingpenguin) who ever you are.
 
+See also [System Boundaries are the focus of the design](https://www.tedinski.com/2018/02/06/system-boundaries.html)

@@ -9,10 +9,15 @@ tags:
 
 Discussion regarding the reliability of transactions when used in database systems that employ a WAL without checksums to verify the integrity of the transaction. 
 
-### SQLite has no WAL checksums
-> SQLite assumes that the detection and/or correction of bit errors caused by cosmic rays, thermal noise, quantum fluctuations, device driver bugs, or other mechanisms, is the responsibility of the underlying hardware and operating system. SQLite does not add any redundancy to the database file for the purpose of detecting corruption or I/O errors. SQLite assumes that the data it reads is exactly the same data that it previously wrote. https://www.sqlite.org/atomiccommit.html
+### SQLite has no WAL checksum warnings
+> By default SQLite assumes that the detection and/or correction of bit errors caused by cosmic rays, thermal noise, quantum fluctuations, device driver bugs, or other mechanisms, is the responsibility of the underlying hardware and operating system. SQLite does not add any redundancy to the database file for the purpose of detecting corruption or I/O errors. SQLite assumes that the data it reads is exactly the same data that it previously wrote. https://www.sqlite.org/atomiccommit.html
 
 > A simple bit flip in the WAL can silently lose committed entries. This is because when a corrupted entry is found in the log, SQLite truncates it, despite the existence of successfully committed entries later in the log. https://github.com/danthegoodman1/BreakingSQLite 
+
+V on twitter notes:
+> SQLite does have checksums for WAL, but not for main db file. That needs to be enabled separately via an extension
+
+While SQLite DOES have a checksum in the WAL file format, which is specified [here](https://www.sqlite.org/fileformat2.html#checksum_algorithm) under the heading "Checksum Algorithm", when SQLite encounters a checksum error it silently drops the frames instead of complaining, which results in silently losing transactions the user previously thought were committed.
 
 ### CRDB has no WAL checksums
 >FROM: Cockroach Labs Support, Oct. 3 2024:

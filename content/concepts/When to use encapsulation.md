@@ -29,7 +29,6 @@ db.SaveThing(thing)
 
 Yes, I'm explicitly saying that the [ActiveRecord](https://en.wikipedia.org/wiki/Active_record_patternhttps://en.wikipedia.org/wiki/Active_record_pattern) pattern is a BAD pattern and should be avoided. (unless you write Django, or Ruby On Rails, then I'm sorry to be you)
 
-
 ### When to use
 When the data you are providing access to is highly complex and needs a in code representation that the coder should interact with which lowers the [Cognitive Load](https://en.wikipedia.org/wiki/Cognitive_load)for the coder.
 
