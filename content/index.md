@@ -3,16 +3,16 @@ title: Grammar, On My Terms
 description: The personal website of Derrick J Wippler, my opinions are my own and are likely insane and incomprehensible. Enter at your own risk
 ---
 ![[images/banner-background.png]]
-#### I learn from the mistakes of people who took my advice 🤣
+
 My name is Derrick Wippler, I’m a Developer, Mentor, Friend, Father, Husband, Entrepreneur, Gamer, and Builder.
 
-### Active Projects
-I'm currently building an open source based company called kapetan.io with the goal of building an eco system which encourages efficiency, sustainability and high velocity, by creating a [pit of success](https://blog.codinghorror.com/falling-into-the-pit-of-success/) which developers will fall into  by virtue of the environment, platform and frameworks we build. 
-
-#### Querator
-I'm actively working on a Reservation based FIFO queue backed by a Database with Almost Exactly Once Delivery semantics called Querator
+### Things I'm doing now
+I'm taking a break from company life to build something cool - a high scale reservation queue system called Querator. It's open source and uses Almost Exactly Once Delivery to handle tons of traffic super efficiently.
 - Repo: https://github.com/kapetan-io/querator
 - Trello Board: https://trello.com/b/cey2cB3i/querator
+Contributing to SlateDB (go) which is a LSM storage engine on top of object storage
+- Repo: https://github.com/slatedb/slatedb-go
+and managing my other open source projects.
 
 ### Things I've Written
 * [[Anatomy Of A Product| Anatomy Of A Product: How to build and scale a SaaS]]
@@ -27,6 +27,7 @@ I'm actively working on a Reservation based FIFO queue backed by a Database with
 * [Hubble](https://github.com/thrawn01/hubble) is a CLI tool for managing environment variables for other CLI tools like novaclient and kubectl
 * [Git-clip](https://github.com/thrawn01/clip) is a CLI tool used in conjunction with `git` to manage git branches, by "clipping" old branches and providing visibility into the state of you local branches at a glance.
 * [SuperRetro 16](https://play.google.com/store/apps/details?id=com.neutronemulation.super_retro_16) is a SNES emulator I wrote with a good friend and tried to form a company around.
+* [Querator](https://github.com/kapetan-io/querator/) is a reservation queue with Almost Exactly Once Delivery, designed for extremely high scale and efficiency. 
 
 ### Things I Believe
 * You can have strong opinions but, don’t hold them too close to your heart.

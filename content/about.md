@@ -68,6 +68,7 @@ streamlined relative to other companies.
 * Rackspace Cloud Block Storage (Private)
 * https://github.com/thrawn01/clip
 * SuperGNES / SuperRetro16 [Google Play](https://play.google.com/store/apps/details?id=com.neutronemulation.super_retro_16&hl=en_US&pli=1)
+* https://github.com/kapetan-io/querator/
 
 ### Opensource Projects I've contributed too
 * https://github.com/rackerlabs/atom-hopper
@@ -78,6 +79,7 @@ streamlined relative to other companies.
 * https://github.com/pb33f/libopenapi
 * https://github.com/mailgun/mailgun-go
 * https://github.com/vulcand/vulcand
+* https://github.com/slatedb/slatedb-go
 
 ### Projects I've abandoned but are still proud of
 * https://github.com/thrawn01/steve
@@ -91,4 +93,6 @@ streamlined relative to other companies.
 * https://github.com/thrawn01
 * https://www.linkedin.com/in/thrawn01
 * https://medium.com/@thrawn01
+* https://bsky.app/profile/thrawn01.bsky.social
+
 
