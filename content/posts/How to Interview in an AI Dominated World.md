@@ -7,36 +7,47 @@ tags:
 date: 2024-12-04
 ---
 ### Doing it Wrong
-Today did an assessment for a position and the very first question on the assesment is to solve a mathematical word problem. My thoughts immediately are: 
+
+I recently completed an assessment for a position, and the very first question on the assessment was to solve a mathematical word problem. My immediate thoughts were: 
 - How does this problem help them decide if I'm the right candidate for the job?
 - Is this the sort of problem I can expect to solve on a daily basis?
 - How do they know I'm not asking ChatGPT for the answer?
 
-I've been interviewing candidates for most of my career, and in all that time, I've never seen mathematical prowess be the deciding factor in a good or bad hire. The TRUTH IS, In an increasingly ChatGPT dominated world, any math problem which has already been solved and written about, can easily be retrieved via an AI prompt.
+This type of interview assessment is typical of developers asked to perform an interview, but who have little experience doing so. Many of them assume they have found a clever way to weed out non-programmers, as their assumption is "any programmer can solve this problem; if you can't, then you are not a programmer". There are two major issues with this line of interview questioning:
 
-Indeed, after the assessment, I asked ChatGPT and it gave me a short and elegant solution to the problem, which tells me the problem has been solved by math professors smarter than I. The crux of the problem is that the math question gave the interviewer ZERO information about how qualified I was for the job. A contrived assessment that has nothing to do with the actual job that you're hiring me for is useless. It wastes my time and it wastes the interviewer's time.
+- You are likely eliminating talent diversity
+- AI likely knows the answer to your novel question
+#### Eliminating diversity of Talent
+The result of applying these types of assumptions to all candidates is a sure way to eliminate a wide array of diverse talent. These questions essentially boil down to an assumption that "Everyone who can answer this question has had similar educational experiences or work background as I have." Applied broadly to every candidate, this is a false assumption and can lead to the loss of a significant amount of top talent. Instead, you need to tailor questioning to the specific position you are hiring for.
+
+If you are interviewing for a team that routinely solves novel math problems as its main occupation, asking the candidate to solve a mathematical problem is extremely useful. For instance, you should assume anyone who joins a team developing a database product must have a basic understanding of what a binary tree is, what an LSM is, SSTables, filter algorithms, etc. However, you should NOT expect a candidate building UI experiences to know what those things are, or to implement a bloom filter algorithm as a programming test!
+
+You can't even apply "every backend developer should know X" as backend development has so many deep specialization niches: networking internals, kernel internals, disk, cloud, the list goes on. Many in those specializations have never solved a novel math problem or traversed a binary tree in their life!
+
+There are no clever "If you can solve this, you are a programmer" style problems you could give without alienating niche talent. Programming in the modern age is so diverse, with so many specializations, that there is no "one size fits all" question you could ask. Not to mention a world where the advent of AI provides access to all of those specializations to the fingertips of anyone on the planet.
+
 ### Ask Questions ChatGPT cannot answer 
-In today's AI-dominated landscape, artificial intelligence systems possess knowledge of mankind's mathematical and coding challenges, including solutions to problems traditionally used by major corporations in their hiring processes. As a result, the practice of using these technical questions for assessment is greatly diminished.
+In today's AI-dominated landscape, artificial intelligence systems possess knowledge of any technology sub specializations,  and all coding challenge solutions traditionally used by major corporations in their hiring processes. As a result, the practice of using these technical  assessment is greatly diminished.
 
 A better solution is to instead ask in interview questions which revolve around a few main threads which ChatGPT can't answer.
 ### How to do coding assessments correctly
 The first thread is understanding coding ability. In general 70-80% of developer time is spent debugging and maintaining code, fixing production problems, and removing technical debit. If your technical assessment includes building a toy project, or solving a novel problem, where the candidate is ONLY writing NEW code, your assessment is only evaluating a tiny part of what a developer does on a daily basis.
 
-A few code related questions every interviewer needs to answer.
+A few questions every candidate needs to answer.
 - What is the candidate's debugging process?
 	- Give the candidate an actual problem you've had, ask them how they would go about diagnosing the issue. 
 	- What questions do they ask to get closer to the solution.
-- Will the candidate give up if the answer eludes?
-	- Give the candidate feed back on questions asked
-	- Do they give up half way, or are they driven to ask more questions to find the answer.
-- Ask the candidate to relate a diagnosis of a problem they solved.
+	- Will the candidate give up if the answer eludes?
+		- Give the candidate feed back on questions asked
+		- Do they give up half way, or are they driven to ask more questions to find the answer.
+- Ask the candidate to relate a diagnosis of a problem they solved in the past.
 - Does the candidate ever say "I don't know" and ask for help? -- This is a good thing, consider this an offer to collaborate and offer suggestions.
 - What is the longest you've worked on and maintained a single project?
 	- What do you wish you could change about that project?
-- How well does the candidate collaborate with others to solve problems?
+- How well does the candidate collaborate with others to diagnose and solve problems?
 
-### Collaborate during the interview
-That final question is of particular note, as a lot of what developers do on a team is work together. The best way to get a sense of what it's like to collaborate with the candidate is to ACTUALLY COLLABORATE together during the interview. You don't want anything too complex, just a problem you can work on together for 6-10 minutes to get a feel for what it's like to collaborate with the candidate.
+#### Collaborate during the interview
+That final question is of particular note, as a lot of what developers do on a team is work together. The best way to get a sense of what it's like to work with the candidate is to ACTUALLY COLLABORATE together during the interview. You don't want anything too complex, just a problem you can work on together for 10-20 minutes to get a feel for what it's like to collaborate with the candidate. Ideally, the collaboration occurs within the realm of the position you are hiring for, at a minimum, in the language the candidate will be using on the team.
 
 For example, here I've created a snippet of golang code and decidedly did the worst possible things I could imagine. It's intended to be light hearted, and fun, with some very obvious fixes. I always have a list of all the possible fixes on my screen before I start, and I check off all the ones identified by the candidate. I also check off issues the candidate fixed, but might not have verbally identified. I call this non verbal fixing, "intuition" as the candidate might not really know it's wrong, but it just "feels" wrong to them, so they fix/improve the code as they go. The candidate should be encouraged to completely rewrite the function as they see fit. Along the way, I will throw out good and bad suggestions on fixes, and see how the candidate reacts.
 
@@ -103,7 +114,6 @@ The second aspect is to understand how the candidate learns and improves. No mat
 - How have you integrated AI into your programming workflow?
 	- Has it made you more or less productive?
 
-
 ### Skills relative to the job
 The next thread is very specific to the position and the candidate, but there are a few high level things every candidate should answer. 
 
@@ -114,7 +124,7 @@ The next thread is very specific to the position and the candidate, but there ar
 
 If the candidate can't give you a con, it's a smell they don't actually know much about the thing, as there is no such thing as a "perfect" solution, there is always a con to every pro.
 ### Get them to talk about themselves
-People in general love talking about themselves and about things they know and are passionate about. Often what they are passionate about isn't directly related to the position, but are adjacent. Teasing out those passions or topics can give you insight, or lead to the candidate gushing and opening up on topics.
+People in general love talking about themselves and about things they know and are passionate about. Often what they are passionate about isn't directly related to the position, but are adjacent. Teasing out those passions or topics can give you insight, or lead to the candidate gushing and opening up about a work experience.
 
 - What do you enjoy doing in your off time?
 - Do you have any hobbies? (Games, Crafts, Social Media Doom Scrolling!?!?!?)
