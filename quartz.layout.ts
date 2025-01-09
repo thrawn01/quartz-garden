@@ -66,6 +66,10 @@ export const defaultContentPageLayout: PageLayout = {
           url:"https://wippler.dev/software-internals/topics"
         },
         {
+          name: "SlateDB",
+          url:"/slatedb/Contents"
+        },
+        {
           name: "Linkedin",
           url:"https://www.linkedin.com/in/thrawn01"
         },
