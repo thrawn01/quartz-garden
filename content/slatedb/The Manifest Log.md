@@ -95,4 +95,6 @@ Note that SlateDB must retry the entire process if a CAS conflict occurs. SlateD
 
 CAS conflict ensures writes to a file do not clobber each other, while the epoch check enables detection of multiple writers.
 
+TODO: Fencing and Compaction
+
 TODO: When reads occur, how does a SlateDB instance know to refresh pages if there are new keys written by other instances?
