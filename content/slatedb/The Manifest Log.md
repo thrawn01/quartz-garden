@@ -54,7 +54,7 @@ SlateDB 02 -> Write db1/manifest/00000000000000000004.manifest ✅
 SlateDB 03 -> Write db1/manifest/00000000000000000004.manifest ❌
 ```
 
-When writing a manifest file, the `IfNotExist`  CAS operation used, such that the first instance to create the next manifest in the sequence wins, while all other instances will lose and return an error.
+When writing a manifest file, the `IfNotExist`  CAS operation used, such that the first instance to create the manifest, while all other instances will lose and return an error.
 
 When multiple SlateDB instances attempt to open a database for write in sequence with some time between them (such that they don't encounter a CAS error)
 ```
