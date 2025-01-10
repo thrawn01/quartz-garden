@@ -27,8 +27,8 @@ db1/manifest/00000000000000000003.manifest
 Going forward, when this document refers to updating the manifest, we do not mean the manifest was updated in place, instead the current manifest had changes applied, and a new version of the manifest is written as described previously.
 
 The manifest file is updated in the following scenarios
-- When the database is opened for write, `write_epoch` is incremented.
-- When the database is opened and compaction is enabled, `compactor_epoch` is incremented.
+- When the database is opened for write, `write_epoch` is incremented once
+- When the database is opened and compaction is enabled, `compactor_epoch` is incremented once
 - When compaction finishes it's current cycle
 - When "MemTables" are flushed to the store
 
@@ -43,31 +43,30 @@ The manifest contains the following:
 ### Fencing
 SlateDB allows you to access the same object store database using multiple SlateDB instances. However, only one of those instances can write to the object store database at any given time. SlateDB does not implement a coordination protocol to enforce a single writer, it is up to the operator to implement coordination if that is desired. As a result, It's possible that multiple SlateDB writer instances could be active, or a previous instance of the SlateDB writer failed to shutdown properly. To avoid clobbering writes to the object store database, fencing is used to prevent write conflicts.
 ##### Fencing Strategy
-During `db::open` an epoch is calculated by reading the last updated manifest and incrementing the epoch found in the manifest by one. `db::open` immediately writes a new manifest file with the updated epoch. A CAS (Compare And Swap) operation provided by the object store is used to ensure multiple SlateDB instances do not attempt to write the manifest with the calculated epoch simultaneously. If multiple instances of SlateDB attempt to `db::open` the same object store database for write simultaneously, only one will succeed. CAS ensures simultaneous attempts to write the manifest will fail, and `db::open` will return a `SlateDBError::ManifestVersionExists` error.
+During `db::open` an epoch is calculated by reading the epoch in the manifest and incrementing it by one, this only happens once for each call to `db::open`. The incremented epoch is then immediately written to the manifest. A CAS (Compare And Swap) operation provided by the object store is used to ensure multiple SlateDB instances do not attempt to write the manifest with the calculated epoch simultaneously. If multiple instances of SlateDB attempt to `db::open` the same object store database for write simultaneously, only one will succeed. CAS ensures simultaneous attempts to write the manifest will fail with `db::open` returning a `SlateDBError::ManifestVersionExists` error if CAS fails.
 
 > While epoch typically refers to unix epoch, the epoch used by SlateDB is not based on time, instead it is an incremental counter which is initialized to 0 when the database is first created.
 
-All 3 instances attempt to open `db1` simultaneously
+In the scenario below, there are 3 instances which attempt to open `db1` simultaneously
 ```
 SlateDB 01 -> Write db1/manifest/00000000000000000004.manifest ❌
 SlateDB 02 -> Write db1/manifest/00000000000000000004.manifest ✅
 SlateDB 03 -> Write db1/manifest/00000000000000000004.manifest ❌
 ```
 
-> When writing a manifest file, the `IfNotExist`  CAS operation used, such that the first instance to create the next manifest in the sequence wins, while all other instances will lose.
+When writing a manifest file, the `IfNotExist`  CAS operation used, such that the first instance to create the next manifest in the sequence wins, while all other instances will lose and return an error.
 
-When multiple SlateDB instances attempt to open a database for write in sequence.
+When multiple SlateDB instances attempt to open a database for write in sequence with some time between them (such that they don't encounter a CAS error)
 ```
  [2024-01-01:12:00:00] SlateDB 01 -> Open db1/
  [2024-01-01:12:00:01] SlateDB 02 -> Open db1/
  [2024-01-01:12:00:02] SlateDB 03 -> Open db1/
 ```
-Each instance will successfully open the database by reading the most recent manifest in sequence, incrementing the epoch, and successfully writing the manifest.
+Then each instance will successfully open the database by reading the most recent manifest in sequence, incrementing the epoch, and successfully writing the manifest.
 
-However, when either instance `SlateDB 01` or `SlateDB 02` attempts to update the manifest as a result of writes, they will discover the epoch in the manifest is greater than the epoch they expect. In order for those instances to detect epoch skew, instances will first read the most recent sequence of the manifest files checking the epoch before attempting to write the next manifest in the sequence.
-
+However, when either instance `SlateDB 01` or `SlateDB 02` attempts to update the manifest when writes occur, they will discover the epoch in the manifest is greater than the epoch they expect. To understand what happens when this occurs, we need to review the Manifest Update Protocol.
+### Manifest Update Protocol
 The steps for updating a manifest in `db1` are as follows:
-
 1. Retrieve a list of files from `db1/manifest/` which have the suffix `.manifest`
 ```
 db1/manifest/00000000000000000004.manifest
@@ -76,7 +75,7 @@ db1/manifest/00000000000000000001.manifest
 db1/manifest/00000000000000000003.manifest
 db1/manifest/00000000000000000000.manifest
 ```
-2. Sort the list of files and select the manifest with the largest sequence number
+2. Sort the list of files and select the manifest with the largest manifest id
 ```
 db1/manifest/00000000000000000000.manifest
 db1/manifest/00000000000000000001.manifest
