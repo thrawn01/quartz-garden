@@ -96,4 +96,4 @@ CAS conflict ensures writes to a file do not clobber each other, while the epoch
 
 TODO: Fencing and Compaction
 
-TODO: When reads occur, how does a SlateDB instance know to refresh pages if there are new keys written by other instances?
+TODO: When reads occur in a separate process, how does a SlateDB reader know there are new keys written by other instances?
