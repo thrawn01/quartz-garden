@@ -85,12 +85,12 @@ db1/manifest/00000000000000000004.manifest
 ```
 3. Read the  `db1/manifest/00000000000000000004.manifest`  manifest file
 4. Apply our changes to the manifest
-5. Compare the epoch in the manifest to our epoch. If our epoch is less than the epoch stored in the manifest, then an error is logged, and the manifest update is aborted.
+5. Compare the epoch in the manifest to our epoch. If our epoch is less than the epoch stored in the manifest, then SlateDB returns an error and closes the database.
 6. Write the modified manifest using the next manifest id number in the sequence. In this case the next number in the sequence is 5 `db1/manifest/00000000000000000005.manifest`. If the manifest write fails with a CAS conflict error, then restart at step 1
 
 Note that SlateDB must restart the entire protocol at step 1, if a CAS conflict occurs. SlateDB must retrieve a new manifest listing in order to discover the most recently updated manifest and re-apply our changes to the manifest. This process will continue to retry indefinitely until manifest write occurs without conflict.
 
-> NOTE: Currently if our epoch is less than the epoch found in the manifest, the manifest update aborts and logs an error without retry. I believe this results in lost writes on the writer that has the skewed epoch. Is this expected? This error is never explicitly handled https://github.com/slatedb/slatedb/blob/604c5330d4c62b64170de5152307c02fe7f6feed/src/manifest_store.rs#L86 here https://github.com/slatedb/slatedb/blob/b9ebbd82e5fd5dd86a2b2aefe8069a9059981691/src/mem_table_flush.rs#L45 The only recourse for the operator in this situation is to close the database and accept the lost writes. However, no error is ever returned, the only way the operator knows there is an issue is if they notice the error in the log and understand what it means.
+> NOTE: If the SlateDB writer detects the epoch is less than the epoch found in the manifest, the manifest update aborts and SlateDB closes the database. This results in lost writes on the writer that the detected the epoch skew. This behavior follows the [STONITH](https://en.wikipedia.org/wiki/STONITH) principle, which applies to nodes that could potentially cause data corruption. As such, care should be taken by operators to avoid simultaneous writers to the same database.
 
 CAS conflict ensures writes to a file do not clobber each other, while the epoch check enables detection of multiple writers.
 

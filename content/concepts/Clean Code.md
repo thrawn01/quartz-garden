@@ -5,13 +5,15 @@ tags:
   - education
   - thoughts
 ---
+NOTE: "Clean Code" is not a reference to the popular book called "Clean Code" which is mostly full of Garbage Advice.
+
 "Clean code" or "Clean Systems" is synonymous with what most people would call "Good Code|Architecture". All good code, like all good systems and architecture share the same characteristic, they make change easy. If the majority of the changes you want to make to your system are easy to make, then it's likely you have clean code.
 
 There is a symbiotic relationship between "clean" systems, and  [Cognitive Load](https://en.wikipedia.org/wiki/Cognitive_load). The ability to grok a system outside of understand the problem domain is the top determining factor in how well clean or good the system is. There are a ton of aspects which make code "clean", which incidentally helps reduce the [Cognitive Load](https://en.wikipedia.org/wiki/Cognitive_load) which also incidentally makes the code easier to change.
 ### Code Architecture
 - [[Order of Importance]] -- TODO
 * [[Separation Of Concerns]]
-* [[Domain Driven Design]]
+* [[Problem Domains]]
 * Data Ownership
 ### Comments
 Comments should NOT explain WHAT the code is doing, (Hopefully that is self advent.) code comments should explain WHY the code is doing what it's doing. 

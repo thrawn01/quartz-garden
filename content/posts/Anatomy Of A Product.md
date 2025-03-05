@@ -15,7 +15,7 @@ Ready? Let’s do this….
 ## Mental Models
 Let's start by thinking about how we should mentally model our code architecture. A mental model allows us to reason about the system as a whole without having to understand all the details of the abstractions that make up the mental model. The mental model I'm presenting here has successfully been used to create and reason about code and architecture at Mailgun. This way of thinking presents us with maximum flexibility, helps us avoid and manage technical debt, and allows us to maintain high-quality code over the lifetime of the product.
 
-In this article we present an approach inspired by [[Domain Driven Design]], Abstraction, [[Separation Of Concerns]] and Data Ownership principles. I call this DACO for short (Domain, Abstract, Concern, Ownership). Most of these principles are not new and have been around for years. Mastering these concepts are vitally important to writing **good code**, and **good architecture**.
+In this article we present an approach inspired by [[Problem Domains]], Abstraction, [[Separation Of Concerns]] and Data Ownership principles. Most of these principles are not new and have been around for years. Mastering these concepts are vitally important to writing **good code**, and **good architecture**.
 
 > [!note] What is good code?
 > **Good Code** is easy to change code. **Good Architecture** is easy to change Architecture. Thus your goal is to design systems which make change easy within your problem domain.
