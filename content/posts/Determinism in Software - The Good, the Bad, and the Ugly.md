@@ -42,8 +42,10 @@ But determinism isn’t always a win. Sometimes, it can open the door to exploit
 
 This isn’t just a retro gaming curiosity. [CVE-2021-20226](https://nvd.nist.gov/vuln/detail/CVE-2021-20226) let attackers exploit deterministic behavior in the `io_uring` subsystem to escalate privileges. They did this by sending crafted `io_uring` requests to bypass refcount checks. In essence, crafting a set of inputs to exploit the consistent broken behavior. Predictability can be a liability when attackers know exactly how the system will respond to crafted inputs.
 
+To be clear, I am not suggesting that software designed to be strictly deterministic and simulatable is inherently insecure. I merely mean that determinism is not a panacea—it does not  guarantee high-quality software. Whether a system is deterministic or not, we must always consider security of the system, and how the system might be abused. Merely being deterministic does not mean that we have simulated all possible bugs or that the system is immune to exploitation.
+
 **Golang: Embracing Non-Determinism (On Purpose)**
-The Go team made a conscious decision to avoid determinism in certain areas. For example, Go’s `select` statement chooses randomly among ready channels, rather than always picking the first. Why? To avoid starvation and reduce the risk of timing-based exploits. If channel selection were deterministic, attackers could predict system behavior, and developers might accidentally introduce subtle bugs.
+Case in point, the Go team made a conscious decision to avoid determinism in certain areas. For example, Go’s `select` statement chooses randomly among ready channels, rather than always picking the first. Why? To avoid starvation and reduce the risk of timing-based exploits. If channel selection were deterministic, attackers could predict system behavior, and developers might accidentally introduce subtle bugs.
 
 If Go's `select` statement were made deterministic—always choosing the first channel in source order that’s ready to communicate—it could lead to starvation. For example, if `requestChan` is always ready with data, the `select` would repeatedly read from it, causing the `shutdownChan`'s code block to never execute. By instead selecting channels uniformly at random, Go ensures that every ready channel eventually gets processed. This design prevents starvation without requiring complex algorithms to manage channel priority.
 
@@ -70,11 +72,11 @@ Personally, I tend to lean on correctness testing -- fuzz testing, property test
 
 Will Wilson points out that the space of possible execution paths in any complex system is vast. DST is only as effective as the scenarios your simulator covers. In a way, you’re trading the challenge of capturing enough test cases for the challenge of building a simulator that can control the universe of possible cases.
 
-The Go compiler itself is an interesting case: it must be deterministic, so the team uses aggressive testing to ensure that running the compiler multiple times on the same input always produces bit-for-bit identical output. Any deviation is treated as a major bug.
+The Go compiler itself is an interesting case: it must be deterministic, such that the same golang source files written by the programmer results in the same output machine code. The team uses aggressive testing to ensure that running the compiler multiple times on the same input always produces bit-for-bit identical output. Any deviation is treated as a major bug.
 ### Where Does That Leave Us?
 So, do we need deterministic systems everywhere? Or can we get close enough with fuzzing, property testing, and aggressive test coverage? Is the extra effort of building deterministic simulators worth it?
 
-How about I give you the principle engineer answer, "It depends". DST is a powerful tool, but it comes with trade-offs. Sometimes, a little unpredictability is exactly what you want. The real challenge is knowing when to lean into determinism, and when to embrace the chaos.
+How about I give you the principle engineer answer of, "It depends". DST is a powerful tool, but it comes with trade-offs. Predictability is wonderful, especially in tests, but sometimes, a little unpredictability might be what you want. The real challenge is knowing when to lean into determinism, and when to embrace the chaos.
 
 References
 - https://homes.cs.washington.edu/~mernst/pubs/determinism-icse2021.pdf
