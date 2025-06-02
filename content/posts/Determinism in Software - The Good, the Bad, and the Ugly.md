@@ -73,6 +73,10 @@ Personally, I tend to lean on correctness testing -- fuzz testing, property test
 Will Wilson points out that the space of possible execution paths in any complex system is vast. DST is only as effective as the scenarios your simulator covers. In a way, you’re trading the challenge of capturing enough test cases for the challenge of building a simulator that can control the universe of possible cases.
 
 The Go compiler itself is an interesting case: it must be deterministic, such that the same golang source files written by the programmer results in the same output machine code. The team uses aggressive testing to ensure that running the compiler multiple times on the same input always produces bit-for-bit identical output. Any deviation is treated as a major bug.
+### AI might change the game
+With the rise of Generative Agentic AI, we may soon see a future where the creation and maintenance of simulations are managed directly by AI systems. It’s possible we are moving toward an era in which a real world simulator—overseen and updated by artificial intelligence—has access to all errata and is aware of every conceivable edge case.
+
+In such a scenario, the costs associated with building and maintaining highly accurate real-world simulations could be virtually eliminated. If this becomes reality, the barrier to adopting deterministic simulation technology (DST) may drop so low that the question will no longer be whether you use DST, but when you will start.
 ### Where Does That Leave Us?
 So, do we need deterministic systems everywhere? Or can we get close enough with fuzzing, property testing, and aggressive test coverage? Is the extra effort of building deterministic simulators worth it?
 
