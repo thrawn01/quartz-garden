@@ -7,13 +7,11 @@ description: The personal website of Derrick J Wippler, my opinions are my own a
 My name is Derrick Wippler, I’m a Developer, Mentor, Friend, Father, Husband, Entrepreneur, Gamer, and Builder.
 
 ### Things I'm doing now
-I'm taking a break from company life to build something cool - a high scale reservation queue system called Querator. It's open source and uses Almost Exactly Once Delivery to handle tons of traffic super efficiently.
+I'm building an open source company, Our first product, is a high scale lease based queue system called Querator. It's open source and uses Almost Exactly Once Delivery to handle tons of traffic super efficiently.
 - Repo: https://github.com/kapetan-io/querator
 - Trello Board: https://trello.com/b/cey2cB3i/querator
 
-And because one project isn't enough, I'm also contributing to SlateDB (golang port) which is an LSM storage engine on top of object storage.
-- Repo: https://github.com/slatedb/slatedb-go
-
+I'm also learning how to use AI, specifically Claude Code to increase productivity and code quality.
 ### Things I've Written
 * [[Anatomy Of A Product| Anatomy Of A Product: How to build and scale a SaaS]]
 * [[Mastering RESTful Design|Mastering RESTful Design: A Decade of Lessons Learned and Best Practices]]

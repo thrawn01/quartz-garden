@@ -60,9 +60,7 @@ This is just another aspect of the product first, but it's not just limited to t
 ### Avoid Idealism
 The reality is that we will almost never fully understand our product. No matter how much time we spend in the design phase of our contracts and interfaces, there will be aspects of our system that are artifacts that we did not expect. This includes networks, operating systems, language choice and the libraries that we use. 
 
-Given two JSON parsing libraries one may accept all unicode characters equally and the other may consider some Unicode characters as invalid. We often may not realize this
-
-until a client gives us a certain combination of Unicode characters and an unexpected result is returned by the product. We may find that a network interface is less reliable or performant for our particular use case than we had previously assumed. This could be true for any number of dependent services and databases. This is also true for environments, IE staging and production are almost never exactly the same, nor do they have the same performance characteristics or load applied to them equally. 
+Given two JSON parsing libraries one may accept all unicode characters equally and the other may consider some Unicode characters as invalid. We often may not realize this until a client gives us a certain combination of Unicode characters and an unexpected result is returned by the product. We may find that a network interface is less reliable or performant for our particular use case than we had previously assumed. This could be true for any number of dependent services and databases. This is also true for environments, IE staging and production are almost never exactly the same, nor do they have the same performance characteristics or load applied to them equally. 
 
 When thinking about the quality of our product we cannot fall into the trap of idealizing the systems, tools and libraries that make up our product. 
 
