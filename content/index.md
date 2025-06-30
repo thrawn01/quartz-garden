@@ -4,12 +4,19 @@ description: The personal website of Derrick J Wippler, my opinions are my own a
 ---
 ![[images/banner-background.png]]
 
-My name is Derrick Wippler, I’m a Developer, Mentor, Friend, Father, Husband, Entrepreneur, Gamer, and Builder.
+My name is Derrick Wippler, I’m a Developer, Mentor, Friend, Father, Husband, Entrepreneur, Gamer, Efficiency Fanatic, and Open Source Builder.
 
 ### Things I'm doing now
-I'm building an open source company, Our first product, is a high scale lease based queue system called Querator. It's open source and uses Almost Exactly Once Delivery to handle tons of traffic super efficiently.
+I'm building [Querator.IO](https://querator.io), which is a high scale lease based queue system. 
+
+It's open source and offers clients Almost Exactly Once Delivery, using any database which supports sorted primary keys -- which is just about any database. It's built from the battle tested lessons we learned scaling [Mailgun](https://mailgun.com) from millions to tens of billions of deliveries a day.  
+
+The best thing about it, you don't need special infrastructure to run and scale. Just use your existing database, and Querator handles all the efficiency, scale, client & contention management for you. 
+
+- Website https://querator.io
 - Repo: https://github.com/kapetan-io/querator
 - Trello Board: https://trello.com/b/cey2cB3i/querator
+- Discord: https://discord.gg/XwfBdN9wdg
 
 I'm also learning how to use AI, specifically Claude Code to increase productivity and code quality.
 ### Things I've Written
