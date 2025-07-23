@@ -70,6 +70,10 @@ export const defaultContentPageLayout: PageLayout = {
           url:"/slatedb/Contents"
         },
         {
+          name: "Concepts",
+          url:"/concepts"
+        },
+        {
           name: "Linkedin",
           url:"https://www.linkedin.com/in/thrawn01"
         },
