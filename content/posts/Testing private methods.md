@@ -14,7 +14,6 @@ functions and interfaces exported by our code. As the exported code forms what
 is known as the public surface of the code package. It is through this public
 surface that we proclaim to our users which interfaces and functions are
 available for use.
-<!--more-->
 
 Making an interface public proclaims two things
     1. The interface is well tested and approved for use.
