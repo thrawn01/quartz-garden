@@ -11,3 +11,5 @@ This is where I'm storing my notes and documentation I write on my journey.
 ### Contents
 - [[SSTables]]
 - [[The Manifest Log]]
+- [[slatedb-problem-domains-diagram.png]]
+
