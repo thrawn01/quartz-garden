@@ -1,5 +1,6 @@
 ---
-slug: never-test-private-methods
+slug: the-functional-testing-skill
+date: 2025-11-15
 tags:
   - programming
   - testing

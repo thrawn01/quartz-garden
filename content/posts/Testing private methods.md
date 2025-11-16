@@ -1,7 +1,5 @@
 ---
-title: Never test private methods
-date: 2017-02-06T08:11:27-05:00
-slug: never-test-private-methods
+date: 2017-02-06
 tags:
   - golang
   - programming

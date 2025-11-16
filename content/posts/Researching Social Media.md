@@ -1,3 +1,8 @@
+---
+date: 2025-09-10
+draft: false
+---
+
 As part of my efforts to meet a challenge started by [Nikita Bier](https://www.linkedin.com/in/nikitabier)
 
 > If you want to get rich on X, it isn't going to be through creator revenue or meme coins. Instead, think about one subject matter that you know more about than anyone else in the world. It can be anything: plumbing, menswear, Indian food, furniture, social apps, whatever. Post one unexpected insight you picked from your experience in that area. Keep it under 5 sentences. Do this every day for 6 months. If you stick to it, we will promote your account to others. By the end, you will be recognized as the world's leading expert in that subject area and you can charge whatever you want for endorsements, your time, or whatever. And no one will be able to take that way from you.
