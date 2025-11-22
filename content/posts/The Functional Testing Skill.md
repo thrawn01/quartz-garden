@@ -157,7 +157,7 @@ func TestCreateUser(t *testing.T) {
     ctx, cancel := context.WithCancel(context.Background())
     defer cancel()
 
-    go server.Start(ctx, "localhost:0")
+    go server.Start(ctx, "localhost:8080")
     defer server.Shutdown(context.Background())
 
     // Make actual HTTP request
