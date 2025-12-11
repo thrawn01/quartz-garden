@@ -4,35 +4,30 @@ description: The personal website of Derrick J Wippler, my opinions are my own a
 ---
 ![[images/banner-background.png]]
 
-My name is Derrick Wippler, I’m a Developer, Mentor, Friend, Father, Husband, Entrepreneur, Gamer, Efficiency Fanatic, and Open Source Builder.
+My name is Derrick Wippler, I’m a Developer, Mentor, Friend, Father, Husband, Entrepreneur, Gamer, Quality Fanatic, and Open Source Builder.
 
 ### Things I'm doing now
-I'm building [Querator.IO](https://querator.io), which is a high scale lease based queue system. 
+I'm a member of technical staff at [Anchorage Digital](https://www.anchorage.com/) where I herd cats to pay the bills.
 
-It's open source and offers clients Almost Exactly Once Delivery, using any database which supports sorted primary keys -- which is just about any database. It's built from the battle tested lessons we learned scaling [Mailgun](https://mailgun.com) from millions to tens of billions of deliveries a day.  
+I'm also building [Querator.IO](https://querator.io), which is a high scale lease based queue system.  
 
-The best thing about it, you don't need special infrastructure to run and scale. Just use your existing database, and Querator handles all the efficiency, scale, client & contention management for you. 
+It's open source and offers clients Almost Exactly Once Delivery, using any database which supports sorted primary keys -- which is just about any database. It's built from the battle tested lessons we learned scaling [Mailgun](https://mailgun.com) from millions to tens of billions of emails a day.  
 
 - Website https://querator.io
 - Repo: https://github.com/kapetan-io/querator
 - Trello Board: https://trello.com/b/cey2cB3i/querator
 - Discord: https://discord.gg/XwfBdN9wdg
 
-I'm also learning how to use AI, specifically Claude Code to increase productivity and code quality.
-### Things I've Written
-* [[Anatomy Of A Product| Anatomy Of A Product: How to build and scale a SaaS]]
-* [[Mastering RESTful Design|Mastering RESTful Design: A Decade of Lessons Learned and Best Practices]]
-* [[Synchronization is bad for scale]]
-* [Mailgun/GroupCache: The superior Golang cache](https://www.mailgun.com/blog/it-and-engineering/golangs-superior-cache-solution-memcached-redis/)
+I'm also a big fan of Claude Code which I use everyday to increase productivity and code quality. You can find my current version of [Claude Code Dot Files Here](https://github.com/thrawn01/claude-dotfiles/)
 
 ### Things I've Built
+* [Querator](https://github.com/kapetan-io/querator/) is a reservation queue with Almost Exactly Once Delivery, designed for extremely high scale and efficiency. 
 * [Gubernator](https://github.com/gubernator-io/gubernator) is a high performance rate limiting service and library written in golang and battle tested at [Mailgun](https://github.com/mailgun/gubernator)
 * [Mailgun.com](https://mailgun.com) is a highly scalable email SaaS company which scales to billions of emails delivered each day.
 * [GroupCache Fork](https://github.com/groupcache/groupcache-go) A modified version of [group cache](https://github.com/golang/groupcache) with support for `context.Context`, [go modules](https://github.com/golang/go/wiki/Modules), and explicit key removal and expiration and bunch of other stuff.
 * [Hubble](https://github.com/thrawn01/hubble) is a CLI tool for managing environment variables for other CLI tools like novaclient and kubectl
 * [Git-clip](https://github.com/thrawn01/clip) is a CLI tool used in conjunction with `git` to manage git branches, by "clipping" old branches and providing visibility into the state of you local branches at a glance.
 * [SuperRetro 16](https://play.google.com/store/apps/details?id=com.neutronemulation.super_retro_16) is a SNES emulator I wrote with a good friend and tried to form a company around.
-* [Querator](https://github.com/kapetan-io/querator/) is a reservation queue with Almost Exactly Once Delivery, designed for extremely high scale and efficiency. 
 
 ### Things I Believe
 * You can have strong opinions but, don’t hold them too close to your heart.
