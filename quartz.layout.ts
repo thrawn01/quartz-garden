@@ -74,6 +74,10 @@ export const defaultContentPageLayout: PageLayout = {
           url:"/concepts"
         },
         {
+          name: "Quotes",
+          url:"/quotes"
+        },
+        {
           name: "Linkedin",
           url:"https://www.linkedin.com/in/thrawn01"
         },
