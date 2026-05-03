@@ -12,7 +12,7 @@ I've recently discovered Matt Pocock's excellent skills repo https://github.com/
 
 Then I saw a post from Matt discussing the merits of establishing common definitions for the model to use. I began to wonder if instead of trying to dictate definitions for the model to use, our skills should use definitions that closely align with the model's training data.
 
-So, I started a new session, and explained my goal to Claude. I asked it to assess my functional-testing skill — specifically whether the word "functional" aligned with its training data, or if it might lead to confusion for AIs using the skill.
+So, I started a new session, and explained my goal to Claude. I asked it to assess my functional-testing skill, specifically whether the word "functional" aligned with its training data, or if it might lead to confusion for AIs using the skill.
 
 To my delight, it clearly explained why "functional" might cause confusion based on training data, and provided some additional references which collide with "functional" as a definition for what "functional testing" is. After some conversation, we settled upon "surface" instead of "functional" to describe this style of testing. Armed with this new information, I renamed the "functional-testing" skill to the "surface-testing" skill, and then because I'm me, I asked the AI if the skill instructions aligned with its training data, and proceeded to rewrite the entire skill from scratch, and I'm very excited about the outcome!
 
