@@ -19,7 +19,7 @@ Making an interface public proclaims two things
 
 Good developers who are cognizant of their public surface usually write new
 functions private first, and are very explicit in exposing only a subset of
-functions public. Developers new to golang and which fall into this category
+functions public. Developers new to golang who fall into this category
 are often appalled to discover they are unable to access these private
 functions when writing tests using the built in **_test** package. The typical
 response is to place the public test functions in the main package, and avoid
@@ -27,10 +27,10 @@ the **_test** package all together. The result is a littering of the public surf
 with hundreds of test functions! Precisely opposite of what we wanted to
 accomplish in making our functions private!
 
-So what are we todo?
+So what are we to do?
 
 We get clues by examining the golang standard library. Take the golang standard
-**fmt** package as an example. It’s public surface is very clean and well tested
+**fmt** package as an example. Its public surface is very clean and well tested
 with 36 tests in the **fmt_test** package. Yet closer inspection reveals many
 private functions of varying degrees of complexity within the package! How does
 a package as well tested and widely used as **fmt** get away with zero tests on
@@ -63,13 +63,13 @@ Recently I saw a pull request where the developer moved the existing tests out
 of the **_test** package and into the main package so he could add tests for a
 private function. He then neglected to add the same tests for the public
 function. This could not only leave a gap of untested code in the public
-function but also breaks encapsulation. Causing headaches for future pull
+function but also break encapsulation, causing headaches for future pull
 requests that don’t realize the testing gap or that now have to deal with a
 tested private function that should have been a detail of the encapsulation,
-but is now apart of the testing suite.
+but is now a part of the testing suite.
 
-Because the function is now apart of the test suite future code changes are
-likely to avoid removing it or changing it’s signature even if is in the best
+Because the function is now a part of the test suite future code changes are
+likely to avoid removing it or changing its signature even if it is in the best
 interests of the code base, purely on the basis that the function is already
 well tested. If changes **must** be made to the private function; the developer is
 forced to update the tests for the private function instead of testing the
@@ -86,7 +86,7 @@ overlap.
 ## How do I ensure my private functions are covered?
 To ensure our public surface tests cover all our private functions, we can use
 code coverage tools. golang comes with a built in code coverage tool to
-identify un-exercised code paths. For example, we can see all the test coverage
+identify unexercised code paths. For example, we can see all the test coverage
 for private functions in the **fmt** package by running the following in a
 terminal. (See **fmt/format.go** which contains many of the private functions)
 
@@ -99,10 +99,10 @@ This tool or one like it should be an important part of any CI setup.
 
 ## How do I avoid crowding the public surface?
 Inevitably you will write some general interfaces which are useful to many
-parts of our code, but are not strictly apart of the public surface you wish to
+parts of our code, but are not strictly a part of the public surface you wish to
 present. These interfaces are perfect candidates for placement in a
 sub-package. In this way we create a testable public interface for our private
-code to use, but which is not strictly apart of our main packages public
+code to use, but which is not strictly a part of our main package's public
 surface. golang supports sub packages naturally and can be a strong indicator
 to users which interface surfaces are specific to our package.
 
@@ -139,7 +139,7 @@ used and tested. Over my many years of C++ and Java development I can’t tell
 you how many times I’ve come across useful and reusable code that was
 thoughtlessly left private and thus inaccessible. I’ve been at companies where
 entire classes were copied 10+ times in different locations of a vast code base
-because the original author never imagined the class would be useful to any one
+because the original author never imagined the class would be useful to anyone
 but himself. Because of this, I write my code public first and make thoughtful
 decisions about how my code is used.
 

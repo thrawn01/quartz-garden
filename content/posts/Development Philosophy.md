@@ -18,8 +18,8 @@ Design, coding, testing always starts top down. Interfaces and APIs are the most
 ## Avoid Idealism
 Embracing the realities of the environment we work in, instead of the idealization of those environments. We are realistic about constraints, all environments have limitations and even identical environments differ, we embrace this as a reality. This means testing in production and admitting the contract isn't always well defined and will evolve over time. We test the product, not the code. It is insufficient to use mocks for testing, as they are the idealized version of the actual thing being mocked. Instead we endeavor to test with real services and dependencies. An artifact of this is that we prefer functional tests over unit tests. Our focus is on
 
-*   Functional testing; Which is 90% of our testing strategy
-*   Good test in production strategies; How we build confidence in change velocity.
+*   Functional testing; which is 90% of our testing strategy
+*   Good test in production strategies; how we build confidence in change velocity.
 *   Observability, for quick resolution of incidents; building confidence in our changes and performance assurances.
 ## Availability
 We build distributed systems with a focus on understanding error states. When building a system, our second question is always “How could this break in production?” We avoid big bangs, we prefer gradual change that we can prove in production, increasing the exposure to change as we gain confidence. We prefer Active/Active availability over Active/Passive.
@@ -29,7 +29,7 @@ Here we dive into further detail on what the top 3 development aspects mean to u
 ### Product 
 Product encompasses contract and interface. Most people think of contracts as methods and schemas on either the input or the output of a system, but a product encompasses the entire system. Given this input you will get this output; while this does include the methods and schema it also includes the data within the schema. Put another way, the product is the definition of the system as a whole while the contract is the definition of the interfaces for the individual systems that make up the product as a whole. We use the term product to avoid confusion with the term contract or interface.
 ### Product over code
-You can have the most immaculate code, with the cleanest contracts, but still have a product that doesn't work. The contract and the code serves the product, The product does not serve the code. We love clean, clear, maintainable and consistent code, but not at the expense of our product. This means when performing a Pull Request review, our focus is more on the impact the PR has on the product and less on how idiomatic the code is.
+You can have the most immaculate code, with the cleanest contracts, but still have a product that doesn't work. The contract and the code serve the product, the product does not serve the code. We love clean, clear, maintainable and consistent code, but not at the expense of our product. This means when performing a Pull Request review, our focus is more on the impact the PR has on the product and less on how idiomatic the code is.
 
 > We believe that if you focus on code, you will get beautiful code, but poor products.
 
@@ -47,7 +47,7 @@ If your focus is to make a product, you
 * Focus on product reliability
 * Focus on functional tests
 * Focus on functionality and intuitive use
-* Focus on support-ability
+* Focus on supportability
 * Focus on maintainability
 * Focus on separation of concerns (Design)
 * Focus on horizontal scaling
@@ -60,12 +60,12 @@ This is just another aspect of the product first, but it's not just limited to t
 ### Avoid Idealism
 The reality is that we will almost never fully understand our product. No matter how much time we spend in the design phase of our contracts and interfaces, there will be aspects of our system that are artifacts that we did not expect. This includes networks, operating systems, language choice and the libraries that we use. 
 
-Given two JSON parsing libraries one may accept all unicode characters equally and the other may consider some Unicode characters as invalid. We often may not realize this until a client gives us a certain combination of Unicode characters and an unexpected result is returned by the product. We may find that a network interface is less reliable or performant for our particular use case than we had previously assumed. This could be true for any number of dependent services and databases. This is also true for environments, IE staging and production are almost never exactly the same, nor do they have the same performance characteristics or load applied to them equally. 
+Given two JSON parsing libraries one may accept all unicode characters equally and the other may consider some Unicode characters as invalid. We often may not realize this until a client gives us a certain combination of Unicode characters and an unexpected result is returned by the product. We may find that a network interface is less reliable or performant for our particular use case than we had previously assumed. This could be true for any number of dependent services and databases. This is also true for environments, i.e. staging and production are almost never exactly the same, nor do they have the same performance characteristics or load applied to them equally. 
 
 When thinking about the quality of our product we cannot fall into the trap of idealizing the systems, tools and libraries that make up our product. 
 
 ### Test the Product, not the code
-If we embrace the fact that there are unknowns about our product, we have to set ourselves up for success over the life of the product by investing in flexible and complete code path testing frameworks early in the product life cycle. These frameworks should include tooling which allows us to quickly add new tests that mimic the realities of our code in production. This means we avoid code mocks and dependency injection that present idealized situations, and instead opt for interaction with real or headless dependent services and databases. In this way we exercise as much of the actual code path as production does. When we do this, we find that adding new tests to cover aspects of our contract evolution we discover over the lifetime of the product, to be simple to add. 
+If we embrace the fact that there are unknowns about our product, we have to set ourselves up for success over the life of the product by investing in flexible and complete code path testing frameworks early in the product life cycle. These frameworks should include tooling which allows us to quickly add new tests that mimic the realities of our code in production. This means we avoid code mocks and dependency injection that present idealized situations, and instead opt for interaction with real or headless dependent services and databases. In this way we exercise as much of the actual code path as production does. When we do this, we find adding new tests to cover aspects of our contract evolution we discover over the lifetime of the product to be simple. 
 
 ### Testing in Production
 Testing in production is about reducing risk, finding outliers, and testing performance issues.
@@ -96,7 +96,7 @@ If I had to teach someone how to get to this development philosophy organically 
 * [The SLO book](https://a.co/d/fAT06lm)
 
 ### Our Software Manifesto 
-* **Product Over Code** There is no direct correlation between Idiomatic code and a great product. You can have idiomatic code but your product still sucks, is terrible to operate, and has terrible up time, stop focusing on code.
-* **Functional Over Unit testing** The product fails yet achieve 100% unit test coverage, There is no correlation, stop focusing on unit tests.
-* **Everyone tests in production**, except this fact and build your product around this truth. Use feature flags, observability, gradual roll outs, no big bang migrations. Imagine Production is a dragon you don't want to wake, deployment should be slow and careful, and if it looks like the dragon might wake you pause or cancel the deployment, anything to avoid waking the dragon.
-* **Immutable testing** If a two line change requires two days of test fixing, you are doing it wrong. Tests should exercise the behavior and not the implementation. Think of your test as immutable, Once you've written the test you can't change it, you can only add new tests. In this way, tests become a long-term asset which improve reliability of your code over the lifetime of the product, and frees you to preform large reactors with high confidence.
+* **Product Over Code** There is no direct correlation between Idiomatic code and a great product. You can have idiomatic code but your product still sucks, is terrible to operate, and has terrible uptime, stop focusing on code.
+* **Functional Over Unit testing** The product fails yet achieves 100% unit test coverage, there is no correlation, stop focusing on unit tests.
+* **Everyone tests in production**, accept this fact and build your product around this truth. Use feature flags, observability, gradual rollouts, no big bang migrations. Imagine Production is a dragon you don't want to wake, deployment should be slow and careful, and if it looks like the dragon might wake you pause or cancel the deployment, anything to avoid waking the dragon.
+* **Immutable testing** If a two-line change requires two days of test fixing, you are doing it wrong. Tests should exercise the behavior and not the implementation. Think of your test as immutable, once you've written the test you can't change it, you can only add new tests. In this way, tests become a long-term asset which improve reliability of your code over the lifetime of the product, and frees you to perform large refactors with high confidence.
