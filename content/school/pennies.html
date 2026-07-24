@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oxidation: From Rockets to Pennies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B1A2E;
+  --ink-2:#12263F;
+  --bone:#F2EDE4;
+  --bone-dim:#A9B4C2;
+  --copper:#C87137;
+  --patina:#2E9B7F;
+  --oxygen:#5BC8F5;
+  --rule:rgba(242,237,228,.16);
+  --display:'Space Grotesk',system-ui,sans-serif;
+  --body:'Fraunces',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:var(--ink);
+  color:var(--bone);
+  font-family:var(--body);
+  overflow:hidden;
+}
+#stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+
+.slide{
+  position:absolute;inset:0;
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  padding:clamp(28px,6vw,90px);
+  max-width:1200px;margin:0 auto;
+}
+.slide.on{display:flex;animation:rise .5s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+.eyebrow{
+  font-family:var(--display);
+  font-size:clamp(11px,1.3vw,14px);
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--oxygen);
+  margin-bottom:clamp(14px,2.4vw,26px);
+  display:flex;gap:14px;align-items:center;
+}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--rule)}
+
+h1{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(34px,7vw,86px);
+  line-height:.98;
+  letter-spacing:-.02em;
+  margin-bottom:clamp(16px,2.6vw,30px);
+}
+h2{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(26px,4.6vw,54px);
+  line-height:1.04;
+  letter-spacing:-.015em;
+  margin-bottom:clamp(14px,2.2vw,26px);
+}
+p.lead{
+  font-size:clamp(17px,2.3vw,27px);
+  line-height:1.45;
+  max-width:22ch;
+}
+p.lead.wide{max-width:34ch}
+p.sub{
+  font-size:clamp(15px,1.7vw,20px);
+  line-height:1.5;
+  color:var(--bone-dim);
+  max-width:40ch;
+  margin-top:clamp(12px,1.8vw,20px);
+}
+em{color:var(--copper);font-style:italic}
+strong{color:var(--oxygen);font-weight:600}
+
+/* ---- signature: the reaction bar ---- */
+.rx{
+  display:flex;align-items:stretch;gap:clamp(8px,1.4vw,18px);
+  flex-wrap:wrap;
+  margin:clamp(18px,3vw,36px) 0;
+}
+.slot{
+  flex:1 1 150px;
+  min-width:120px;
+  border:1px solid var(--rule);
+  border-radius:3px;
+  padding:clamp(12px,1.8vw,20px);
+  background:rgba(255,255,255,.02);
+  opacity:0;transform:translateY(10px);
+}
+.on .slot{animation:slotIn .45s ease both}
+.on .slot:nth-child(1){animation-delay:.15s}
+.on .slot:nth-child(2){animation-delay:.30s}
+.on .slot:nth-child(3){animation-delay:.45s}
+.on .slot:nth-child(4){animation-delay:.60s}
+.on .slot:nth-child(5){animation-delay:.75s}
+@keyframes slotIn{to{opacity:1;transform:none}}
+
+.slot .role{
+  font-family:var(--display);
+  font-size:clamp(9px,1.05vw,11px);
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--bone-dim);
+  display:block;margin-bottom:8px;
+}
+.slot .val{
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(16px,2.2vw,27px);
+  line-height:1.1;
+  display:block;
+}
+.slot.fuel .val{color:var(--copper)}
+.slot.fuel .role{color:var(--copper);opacity:.75}
+.slot.ox .val{color:var(--oxygen)}
+.slot.ox .role{color:var(--oxygen);opacity:.75}
+.slot.out{border-color:rgba(46,155,127,.5);background:rgba(46,155,127,.07)}
+.slot.out .val{color:var(--patina)}
+.slot.out .role{color:var(--patina);opacity:.8}
+
+.op{
+  flex:0 0 auto;
+  align-self:center;
+  font-family:var(--display);
+  font-size:clamp(18px,2.4vw,30px);
+  color:var(--bone-dim);
+  opacity:0;
+}
+.on .op{animation:slotIn .45s ease both}
+.on .op:nth-child(2){animation-delay:.22s}
+.on .op:nth-child(4){animation-delay:.52s}
+
+/* ---- name breakdown ---- */
+.namecard{
+  border-left:2px solid var(--copper);
+  padding-left:clamp(14px,2vw,22px);
+  margin:clamp(16px,2.4vw,28px) 0;
+}
+.namecard .big{
+  font-family:var(--display);
+  font-weight:700;
+  font-size:clamp(24px,4vw,50px);
+  letter-spacing:-.01em;
+}
+.namecard .big .ide{color:var(--patina)}
+.namecard .gloss{
+  font-size:clamp(14px,1.6vw,19px);
+  color:var(--bone-dim);
+  margin-top:8px;
+}
+
+/* ---- lists ---- */
+ul.beats{list-style:none;margin-top:clamp(12px,2vw,22px)}
+ul.beats li{
+  font-size:clamp(15px,1.9vw,23px);
+  line-height:1.4;
+  padding:clamp(9px,1.2vw,14px) 0;
+  border-bottom:1px solid var(--rule);
+  display:flex;gap:14px;align-items:baseline;
+}
+ul.beats li::before{
+  content:attr(data-k);
+  font-family:var(--display);
+  font-size:clamp(10px,1.1vw,12px);
+  letter-spacing:.18em;
+  color:var(--copper);
+  flex:0 0 auto;min-width:64px;
+  text-transform:uppercase;
+}
+
+.ask{
+  font-family:var(--display);
+  font-size:clamp(16px,2.1vw,26px);
+  color:var(--oxygen);
+  border:1px dashed rgba(91,200,245,.4);
+  border-radius:3px;
+  padding:clamp(12px,1.8vw,20px);
+  margin-top:clamp(14px,2vw,24px);
+  max-width:34ch;
+}
+
+/* ---- chrome ---- */
+#bar{
+  position:fixed;left:0;right:0;bottom:0;
+  display:flex;align-items:center;gap:16px;
+  padding:10px clamp(14px,3vw,32px);
+  font-family:var(--display);
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--bone-dim);
+  border-top:1px solid var(--rule);
+  background:rgba(11,26,46,.9);
+  backdrop-filter:blur(6px);
+}
+#bar .grow{flex:1}
+#bar button{
+  font:inherit;letter-spacing:.14em;
+  background:none;border:1px solid var(--rule);color:var(--bone-dim);
+  padding:6px 12px;border-radius:2px;cursor:pointer;
+}
+#bar button:hover,#bar button:focus-visible{color:var(--bone);border-color:var(--oxygen);outline:none}
+#prog{height:2px;background:var(--copper);position:fixed;top:0;left:0;transition:width .35s ease;z-index:5}
+
+#notes{
+  position:fixed;left:0;right:0;bottom:41px;
+  max-height:38vh;overflow:auto;
+  padding:clamp(16px,2.4vw,26px) clamp(14px,3vw,32px);
+  background:#08131F;
+  border-top:1px solid var(--rule);
+  font-size:15px;line-height:1.55;
+  color:var(--bone-dim);
+  display:none;
+}
+#notes.on{display:block}
+#notes h4{
+  font-family:var(--display);font-size:11px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--copper);margin-bottom:10px;
+}
+#notes p{margin-bottom:10px;max-width:90ch}
+#notes .say{color:var(--bone);font-family:var(--body)}
+
+/* ---- held reveal: waits for a keypress ---- */
+.held{opacity:0}
+.blank.held{opacity:1}
+.on .slot.held,.on .op.held{animation:none;opacity:0}
+.on .held.shown{animation:slotIn .5s ease both;animation-delay:0s}
+.on .blank.held{animation:none;opacity:1}
+.on .blank.held.shown{animation:slotIn .4s ease both;animation-delay:0s}
+
+/* ---- rocket illustration ---- */
+.rocket-row{
+  display:flex;align-items:center;gap:clamp(16px,3vw,40px);
+  flex-wrap:wrap;
+}
+.rocket-row .rocket-art{
+  flex:0 0 auto;
+  width:clamp(70px,11vw,132px);
+  height:auto;
+}
+.rocket-row .rocket-body{flex:1 1 320px;min-width:260px}
+.rocket-art .hull{fill:var(--bone)}
+.rocket-art .win{fill:var(--oxygen)}
+.rocket-art .fin{fill:var(--copper)}
+.rocket-art .flame-o{fill:var(--copper);opacity:.9}
+.rocket-art .flame-i{fill:var(--oxygen);opacity:.85}
+.rocket-art .puff{fill:var(--patina);opacity:0}
+.on .rocket-art .puff.shown{animation:puff 1.1s ease-out both}
+@keyframes puff{
+  0%{opacity:0;transform:translateY(0) scale(.5)}
+  35%{opacity:.65}
+  100%{opacity:0;transform:translateY(26px) scale(1.5)}
+}
+
+/* ---- fill-in-the-blank reveal ---- */
+.blank{
+  position:relative;
+  display:inline-block;
+  min-width:5.5em;
+}
+.blank:not(.shown){
+  color:transparent;
+}
+.blank:not(.shown) .ide{color:transparent}
+.blank:not(.shown)::after{
+  content:"";
+  position:absolute;left:0;right:0;bottom:.06em;
+  border-bottom:2px solid var(--rule);
+}
+
+/* ---- the naming rule template ---- */
+.ruleline{
+  display:flex;align-items:center;gap:clamp(8px,1.4vw,16px);
+  flex-wrap:wrap;
+  font-family:var(--display);
+  font-size:clamp(16px,2.5vw,32px);
+  font-weight:500;
+  margin:clamp(14px,2.2vw,28px) 0 clamp(10px,1.4vw,16px);
+}
+.ruleline .rl-a,.ruleline .rl-b,.ruleline .rl-c{
+  border:1px solid var(--rule);
+  border-radius:3px;
+  padding:clamp(8px,1.2vw,14px) clamp(10px,1.6vw,18px);
+  background:rgba(255,255,255,.02);
+}
+.ruleline .rl-a{color:var(--copper)}
+.ruleline .rl-b{color:var(--oxygen)}
+.ruleline .rl-c{border-color:rgba(46,155,127,.5);background:rgba(46,155,127,.07)}
+.ruleline .rl-op{color:var(--bone-dim)}
+.ide{color:var(--patina);font-weight:600}
+
+/* ---- formula breakdown ---- */
+.formula{
+  display:flex;align-items:flex-end;gap:2px;
+  font-family:var(--display);font-weight:700;
+  font-size:clamp(44px,10vw,120px);
+  line-height:1;
+  margin:clamp(16px,2.6vw,32px) 0 clamp(8px,1.2vw,14px);
+}
+.formula .atom{position:relative;display:flex;align-items:flex-end}
+.formula .atom.h{color:var(--oxygen)}
+.formula .atom.o{color:var(--patina)}
+.formula sub{
+  font-size:.44em;
+  font-weight:500;
+  transform:translateY(.12em);
+  opacity:.85;
+}
+.legend{
+  display:flex;gap:clamp(16px,3vw,40px);flex-wrap:wrap;
+  margin-top:clamp(10px,1.6vw,18px);
+}
+.legend div{
+  font-family:var(--display);
+  font-size:clamp(12px,1.5vw,17px);
+  letter-spacing:.04em;
+  display:flex;gap:9px;align-items:baseline;
+}
+.legend .key{font-weight:700;font-size:1.25em}
+.legend .h .key{color:var(--oxygen)}
+.legend .o .key{color:var(--patina)}
+.legend .txt{color:var(--bone-dim)}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .slot,.op{opacity:1;transform:none}
+  .on .slot.held,.on .op.held{opacity:0}
+  .on .slot.held.shown,.on .op.held.shown{opacity:1}
+  .blank.held{opacity:1}
+}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div id="stage">
+
+<!-- 1 -->
+<section class="slide on"
+ data-notes="<p>Set the frame before any chemistry. This is a story about <span class='say'>names</span> — about how the name of a substance tells you what went into making it.</p><p>Have the pennies visible but out of reach. Do not clean anything yet.</p>">
+  <div class="eyebrow">Backyard Chemistry</div>
+  <h1>What happens<br>to old pennies?</h1>
+  <p class="sub">Rockets, rust, and one very dirty handful of change.</p>
+</section>
+
+<!-- 2 -->
+<section class="slide"
+ data-notes="<h4>Ask, don't tell</h4><p>Let them supply the two ingredients. They already know this one.</p><p>The move that matters: <span class='say'>oxidizer is a job, not a substance.</span> It's whoever brings the oxygen. Rockets carry their own because there's no air up there to borrow from.</p><h4>Then hold</h4><p>Before you advance: <span class='say'>&quot;So the rocket burns hydrogen with oxygen. What's left over? What comes out the back?&quot;</span></p><p>Let them guess. Smoke, fire, gas — take everything. Then press next.</p>">
+  <div class="eyebrow">Slide 02 — What we already know</div>
+  <h2>A rocket needs two things</h2>
+  <div class="rocket-row">
+    <svg class="rocket-art" viewBox="0 0 120 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A rocket firing its engine">
+      <!-- fins -->
+      <path class="fin" d="M38 150 L18 196 L38 186 Z"/>
+      <path class="fin" d="M82 150 L102 196 L82 186 Z"/>
+      <!-- hull -->
+      <path class="hull" d="M60 6 C82 40 90 84 90 128 L90 186 L30 186 L30 128 C30 84 38 40 60 6 Z"/>
+      <!-- window -->
+      <circle class="win" cx="60" cy="96" r="15"/>
+      <!-- nozzle -->
+      <path class="fin" d="M42 186 L78 186 L84 202 L36 202 Z"/>
+      <!-- flame -->
+      <path class="flame-o" d="M46 204 C50 226 54 238 60 252 C66 238 70 226 74 204 Z"/>
+      <path class="flame-i" d="M53 205 C55 221 57 229 60 238 C63 229 65 221 67 205 Z"/>
+      <!-- exhaust puffs, revealed with the result -->
+      <circle class="puff" cx="46" cy="228" r="8"/>
+      <circle class="puff" cx="72" cy="236" r="6"/>
+      <circle class="puff" cx="58" cy="246" r="9"/>
+    </svg>
+    <div class="rocket-body">
+      <p class="sub" style="margin-top:0">Fuel burns. But it can only burn if something brings the <strong>oxygen</strong>. In space there's no air to borrow from — so the rocket carries its own.</p>
+    </div>
+  </div>
+  <div class="rx">
+    <div class="slot fuel"><span class="role">Fuel</span><span class="val">Hydrogen</span></div>
+    <div class="op">+</div>
+    <div class="slot ox"><span class="role">Oxidizer</span><span class="val">Oxygen</span></div>
+    <div class="op held">→</div>
+    <div class="slot out held"><span class="role">What's left</span><span class="val">Water</span></div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="slide"
+ data-notes="<h4>They already know this one</h4><p>Start by asking what H<sub>2</sub>O stands for. They've almost certainly seen it written down.</p><p>Then unpack it: <span class='say'>the H is hydrogen. The O is oxygen. The little 2 means two hydrogens for every one oxygen.</span></p><p>That's the rocket's fuel and the rocket's oxidizer — sitting right there in the name of water.</p><h4>Then hold</h4><p>Before advancing: <span class='say'>&quot;If water is made of hydrogen and oxygen joined together... what should its science name be?&quot;</span></p><p>See if they can build it from the rule. Then press next.</p>">
+  <div class="eyebrow">Slide 03 — The rocket's exhaust</div>
+  <h2>Water?</h2>
+  <div class="formula">
+    <span class="atom h">H<sub>2</sub></span><span class="atom o">O</span>
+  </div>
+  <div class="legend">
+    <div class="h"><span class="key">H</span><span class="txt">hydrogen — the fuel</span></div>
+    <div class="o"><span class="key">O</span><span class="txt">oxygen — the oxidizer</span></div>
+    <div class="h"><span class="key">2</span><span class="txt">two hydrogens, one oxygen</span></div>
+  </div>
+  <p class="sub" style="margin-top:clamp(16px,2.4vw,28px)">The fuel and the oxidizer are <strong>both still there</strong>. They just joined up and became one new thing.</p>
+  <div class="namecard held" style="margin-top:clamp(18px,2.6vw,30px)">
+    <div class="big">Hydrogen ox<span class="ide">ide</span></div>
+    <div class="gloss">we call it water — but that's its real name</div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section class="slide"
+ data-notes="<h4>The core rule</h4><p>Everything is on the slide. Say the rule, then have them say it back.</p>">
+  <div class="eyebrow">Slide 04 — The rule</div>
+  <h2>Oxygen joins onto things.<br>Then we rename them.</h2>
+  <div class="ruleline">
+    <span class="rl-a">the thing</span>
+    <span class="rl-op">+</span>
+    <span class="rl-b">oxygen</span>
+    <span class="rl-op">=</span>
+    <span class="rl-c">the thing's name, then <span class="ide">oxide</span></span>
+  </div>
+  <p class="sub"><span class="ide">Oxide</span> is the word we stick on the end to say <strong>oxygen joined this</strong>. Hear the &ldquo;ox&rdquo; hiding in it? That's oxygen, still in the name.</p>
+  <div class="namecard held">
+    <div class="big">copper + oxygen = <span class="blank held">copper <span class="ide">oxide</span></span></div>
+  </div>
+  <div class="namecard held">
+    <div class="big">iron + oxygen = <span class="blank held">iron <span class="ide">oxide</span></span></div>
+    <div class="gloss">you already know this one by its nickname</div>
+  </div>
+  <div class="ask held">What do we normally call iron oxide?</div>
+  <p class="sub held" style="max-width:44ch"><strong>Rust.</strong> The everyday word tells you nothing. The science name tells you exactly what's in it.</p>
+</section>
+
+<!-- 6 -->
+<section class="slide"
+ data-notes="<h4>Hold up two pennies</h4><p>One dirty, one clean. Ask: <span class='say'>which one has more copper in it?</span></p><p>Answer: the same. Some of the dirty one's copper is just wearing a disguise.</p><p>The big misconception to break: tarnish is NOT dirt sitting on top. Those surface copper atoms literally became a different substance.</p>">
+  <div class="eyebrow">Slide 05 — Our pennies</div>
+  <h2>So what's on<br>these pennies?</h2>
+  <div class="rx">
+    <div class="slot fuel"><span class="role">The metal</span><span class="val">Copper</span></div>
+    <div class="op">+</div>
+    <div class="slot ox"><span class="role">From the air</span><span class="val">Oxygen</span></div>
+    <div class="op">→</div>
+    <div class="slot out"><span class="role">The dull stuff</span><span class="val">Copper oxide</span></div>
+  </div>
+  <p class="sub">It isn't dirt sitting on top. The copper on the surface <strong>became something else</strong>. The penny is wearing a thin coat of a different substance.</p>
+  <div class="ask held">Hold up a dull penny and a shiny one — which one has more copper in it?</div>
+  <p class="sub held" style="max-width:44ch">The same. Some of the dull one's copper is just <em>wearing a disguise</em>.</p>
+</section>
+
+<!-- 7 -->
+<section class="slide"
+ data-notes="<h4>Pose it before answering</h4><p>Two options on the table. Let them argue for a minute.</p><p>The answer is #2. Vinegar and salt dissolve copper oxide and carry it away. <span class='say'>We are not un-burning the penny. We're taking off the ash.</span></p>">
+  <div class="eyebrow">Slide 06 — The question</div>
+  <h2>How do we get<br>the shine back?</h2>
+  <ul class="beats">
+    <li data-k="Option 1">Undo the reaction — pull the oxygen back off</li>
+    <li data-k="Option 2">Leave it alone and wash the copper oxide away</li>
+  </ul>
+  <div class="ask">Which one do you think would be easier?</div>
+</section>
+
+<!-- 8 -->
+<section class="slide"
+ data-notes="<h4>The rule widens</h4><p>Everything is on the slide. The point: -ide isn't only about oxygen.</p>">
+  <div class="eyebrow">Slide 07 — Meet the bath</div>
+  <h2>Salt has a real name too</h2>
+  <div class="namecard">
+    <div class="big">sodium + chlorine = sodium chlor<span class="ide">ide</span></div>
+    <div class="gloss">the thing, then what joined it — same rule as before</div>
+  </div>
+  <p class="sub">Chlorine joined onto sodium, so we renamed it. Not an ox<span class="ide">ide</span> this time — oxygen isn't the only thing that joins on.</p>
+  <p class="sub held" style="max-width:44ch">Vinegar is an <strong>acid</strong>. It does the loosening. The salt makes it much better at the job. Neither one changes — until they reach the penny.</p>
+</section>
+
+<!-- 9 -->
+<section class="slide"
+ data-notes="<h4>DO IT — pennies in the bath</h4><p>Vinegar + a good spoonful of salt. Drop them in. Often under a minute.</p><p>Clean a dozen or more — you need the solution genuinely loaded with copper for the nail to work later.</p><p>Talk while it works: we're not changing the copper oxide back, we're just dissolving it off and letting it float away.</p>">
+  <div class="eyebrow">Slide 08 — Do it</div>
+  <h2>Pennies in.</h2>
+  <p class="lead wide">The acid and the chloride team up and <em>dissolve</em> the copper oxide. The dull coat lifts off and floats away — and the shiny copper underneath was there the whole time.</p>
+  <ul class="beats">
+    <li data-k="Bath">enough vinegar to cover, a big spoonful of salt</li>
+    <li data-k="Pennies">as many as we've got — we need the water loaded</li>
+    <li data-k="Time">watch the water, not just the pennies</li>
+  </ul>
+  <div class="ask held">When these come out: dry one penny, leave one wet. Set them side by side.</div>
+</section>
+
+<!-- 9 -->
+<section class="slide"
+ data-notes="<h4>The pivot question</h4><p>This is what turns a cleaning trick into chemistry.</p><p>The copper isn't gone. It's in the cup — spread out so fine you can't see it. The water may go faintly blue-green.</p><p>Let them propose how to prove it. Then show them the nail.</p>">
+  <div class="eyebrow">Slide 09 — Where did it go?</div>
+  <h2>The copper<br>didn't vanish.</h2>
+  <p class="lead wide">It's in the cup. Spread out so finely you can't see it.</p>
+  <div class="ask">How could we prove there's copper in that water?</div>
+</section>
+
+<!-- 10 -->
+<section class="slide"
+ data-notes="<h4>Grabbiness — the kid-shaped activity series</h4><p>Some metals are grabbier than others. Iron is grabbier than copper.</p><p>So iron pushes into the water and takes copper's place. Iron goes in, copper comes out — onto the nail.</p><p>Note it only goes one direction: drop a penny in iron-water and nothing happens.</p>">
+  <div class="eyebrow">Slide 10 — The swap</div>
+  <h2>Some metals are<br>grabbier than others</h2>
+  <div class="rx">
+    <div class="slot fuel"><span class="role">Grabbier</span><span class="val">Iron</span></div>
+    <div class="op">↔</div>
+    <div class="slot ox"><span class="role">Less grabby</span><span class="val">Copper</span></div>
+    <div class="op">→</div>
+    <div class="slot out"><span class="role">Result</span><span class="val">They trade places</span></div>
+  </div>
+  <p class="sub">Put an iron nail in copper water and the iron <strong>pushes in and takes the copper's spot</strong>. Iron goes into the water. The copper has nowhere to go but onto the nail.</p>
+  <p class="sub held" style="max-width:44ch">It only works one way. Put a <em>copper</em> penny in iron water and nothing happens — copper isn't grabby enough to push iron out.</p>
+</section>
+
+<!-- 11 -->
+<section class="slide"
+ data-notes="<h4>DO IT — the nail</h4><p>Sanded steel nail into the used solution. NOT galvanized — the zinc gives you a gray mess.</p><p>Coppery in a few minutes, convincing in fifteen or twenty.</p><p>Say it plainly: <span class='say'>we moved copper off a penny, through water, onto a nail, without touching either one.</span></p>">
+  <div class="eyebrow">Slide 11 — Do it</div>
+  <h2>Nail in.</h2>
+  <p class="lead wide">Give it a few minutes. Then look at the nail — and remember it started out <em>gray</em>.</p>
+  <ul class="beats">
+    <li data-k="Nail">plain steel, sanded shiny — not galvanized</li>
+    <li data-k="Where">straight into the used penny water</li>
+    <li data-k="Watch">coppery in minutes, convincing in twenty</li>
+  </ul>
+  <p class="sub held" style="max-width:44ch">We moved copper off a penny, through water, and onto a nail — <strong>without touching either one</strong>.</p>
+</section>
+
+<!-- 12 -->
+<section class="slide"
+ data-notes="<h4>The closer — set up back at slide 8</h4><p>Everything is on the slide.</p>">
+  <div class="eyebrow">Slide 12 — One last trick</div>
+  <h2>Two pennies.<br>Same bath.<br>Different endings.</h2>
+  <ul class="beats">
+    <li data-k="Dried">still bright</li>
+    <li data-k="Left wet">blue-green already</li>
+  </ul>
+  <p class="sub">In the car it took <em>years</em> to go dull. This took an hour. We did two things to it:</p>
+  <ul class="beats held">
+    <li data-k="One">we stripped off the coat that was protecting it</li>
+    <li data-k="Two">we left the bare copper sitting in <strong>salt water</strong></li>
+  </ul>
+  <p class="sub held" style="max-width:44ch">Oxygen on its own is slow. Oxygen <em>plus water</em> is fast — and salt makes it faster still.</p>
+</section>
+
+<!-- 13 -->
+<section class="slide"
+ data-notes="<h4>The kitchen proof</h4><p>Everything is on the slide. Send them to go look at the pan.</p>">
+  <div class="eyebrow">Slide 13 — Proof, in our kitchen</div>
+  <h2>Same pan.<br>Only water changes.</h2>
+  <ul class="beats">
+    <li data-k="Dry">sits in the cupboard for years — fine</li>
+    <li data-k="Wet">left in the sink overnight — rusted by morning</li>
+  </ul>
+  <p class="sub">Same iron. Same air. Same oxygen the whole time. The <strong>only</strong> difference is the water.</p>
+  <div class="ask held">So why do we rub oil on a cast iron pan?</div>
+  <p class="sub held" style="max-width:44ch">To keep water off the iron. The oil does the same job the dull coat was doing on the penny — it's a lid.</p>
+</section>
+
+<!-- 14 -->
+<section class="slide"
+ data-notes="<h4>Land the plane</h4><p>Everything today was one idea: things join together, and the new name tells you what joined.</p><p>If they want more: aluminum oxide, magnesium oxide, sodium chloride. The pattern keeps working.</p>">
+  <div class="eyebrow">Slide 14 — What we learned</div>
+  <h2>The name tells you<br>what's inside</h2>
+  <ul class="beats">
+    <li data-k="Oxide">something joined up with oxygen</li>
+    <li data-k="Iron ox.">iron + oxygen — we call it rust</li>
+    <li data-k="Copper ox.">copper + oxygen — the dull coat on a penny</li>
+    <li data-k="Hydrogen ox.">hydrogen + oxygen — we call it water</li>
+  </ul>
+  <p class="sub">Rockets, rust, and pennies — and <em>water</em> is what decides how fast it happens.</p>
+</section>
+
+</div>
+
+<div id="notes"></div>
+
+<div id="bar">
+  <span id="count">1 / 14</span>
+  <span class="grow"></span>
+  <button id="nbtn" aria-pressed="false">Notes — N</button>
+  <button id="pbtn">← Prev</button>
+  <button id="nxbtn">Next →</button>
+</div>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var i=0, notesOn=false;
+  var notes=document.getElementById('notes');
+  var count=document.getElementById('count');
+  var prog=document.getElementById('prog');
+
+  function heldOf(n){return [].slice.call(slides[n].querySelectorAll('.held'));}
+
+  function draw(revealAll){
+    slides.forEach(function(s,n){s.classList.toggle('on',n===i);});
+    heldOf(i).forEach(function(el){el.classList.toggle('shown',!!revealAll);});
+    count.textContent=(i+1)+' / '+slides.length;
+    prog.style.width=((i+1)/slides.length*100)+'%';
+    notes.innerHTML=slides[i].dataset.notes||'<p>—</p>';
+  }
+
+  function go(d){
+    var held=heldOf(i);
+    if(d>0){
+      // reveal the next held item before advancing the slide
+      for(var k=0;k<held.length;k++){
+        if(!held[k].classList.contains('shown')){held[k].classList.add('shown');return;}
+      }
+      if(i<slides.length-1){i++;draw(false);}
+    }else{
+      // step back through revealed items, then to the previous slide
+      for(var j=held.length-1;j>=0;j--){
+        if(held[j].classList.contains('shown')){held[j].classList.remove('shown');return;}
+      }
+      if(i>0){i--;draw(true);}
+    }
+  }
+  function toggleNotes(){
+    notesOn=!notesOn;
+    notes.classList.toggle('on',notesOn);
+    document.getElementById('nbtn').setAttribute('aria-pressed',notesOn);
+  }
+
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();go(1);}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(-1);}
+    else if(e.key.toLowerCase()==='n'){toggleNotes();}
+    else if(e.key==='Home'){i=0;draw(false);}
+    else if(e.key==='End'){i=slides.length-1;draw(true);}
+  });
+  document.getElementById('nxbtn').onclick=function(){go(1)};
+  document.getElementById('pbtn').onclick=function(){go(-1)};
+  document.getElementById('nbtn').onclick=toggleNotes;
+
+  var x0=null;
+  document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+  document.addEventListener('touchend',function(e){
+    if(x0===null)return;
+    var dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>50)go(dx<0?1:-1);
+    x0=null;
+  },{passive:true});
+
+  draw(false);
+})();
+</script>
+</body>
+</html>
